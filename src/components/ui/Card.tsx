@@ -7,14 +7,12 @@ interface CardProps {
   className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, link, className }) => {
+export const Card: React.FC<CardProps> = ({ title, description, link, className }) => {
   return (
-    <div className={cn("border rounded-lg p-4 shadow-md", className)}>
+    <div className={cn("p-6 bg-white shadow-md rounded-xl", className)}>
       <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="text-gray-700">{description}</p>
-      <a href={link} className="text-blue-600 hover:underline">Learn More</a>
+      <p className="mt-2 text-gray-600">{description}</p>
+      <a href={link} className="text-blue-500 hover:underline">Learn More</a>
     </div>
   );
 };
-
-export default Card;

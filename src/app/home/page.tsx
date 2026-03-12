@@ -1,33 +1,35 @@
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { CTABanner } from "@/components/sections/CTABanner";
 import { images } from "@/config/images";
-import HeroSection from "@/components/HeroSection";
-import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Wagmore Dog Grooming - Home",
-  description: "Quality pet grooming services in your area.",
+  title: "Home | Summit Electric",
+  description: "Welcome to Summit Electric, your trusted local service provider for home improvement solutions.",
   openGraph: {
-    title: "Wagmore Dog Grooming - Home",
-    description: "Quality pet grooming services in your area.",
-    image: images["hero"].src,
+    title: "Home | Summit Electric",
+    description: "Welcome to Summit Electric, your trusted local service provider for home improvement solutions.",
+    image: images.hero.src,
   },
 };
 
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <main>
+    <div>
       <HeroSection
-        heading="Welcome to Wagmore Dog Grooming"
-        subtext="Your pet deserves the best care."
-        ctaPrimary="Book Now"
-        ctaSecondary="Learn More"
-        imageSrc={images["hero"].src}
+        heading="Quality Home Improvement Solutions"
+        subtext="Delivering reliable and professional services to enhance your home."
+        cta={{ primary: "Schedule Service", secondary: "Call Now" }}
+        image={images.hero.src}
       />
-      <section className="pt-20">
-        <h2 className="text-3xl font-bold">Contact Us</h2>
-        <ContactForm />
-      </section>
-    </main>
+      <ServicesGrid />
+      <TestimonialsSection />
+      <CTABanner
+        heading="Ready to Transform Your Home?"
+        description="Contact us today for a free consultation."
+        buttonText="Get a Quote"
+      />
+    </div>
   );
-};
-
-export default HomePage;
+}

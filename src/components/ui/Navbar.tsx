@@ -1,23 +1,25 @@
-"use client";
-import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/cn";
+import { Phone } from "lucide-react";
+import Link from "next/link";
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-      <div className="flex justify-between items-center p-4">
-        <div className="text-xl font-bold">Wagmore Dog Grooming</div>
-        <div className="hidden md:flex space-x-4">
-          <a href="/" className="text-gray-700 hover:text-primary">Home</a>
-          <a href="/about" className="text-gray-700 hover:text-primary">About</a>
-          <a href="/services" className="text-gray-700 hover:text-primary">Services</a>
-          <a href="/contact" className="text-gray-700 hover:text-primary">Contact</a>
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+        <Link href="/" className="text-xl font-bold">{siteConfig.name}</Link>
+        <nav className="flex space-x-4">
+          {siteConfig.links.menu.map((link) => (
+            <Link key={link.label} href={link.href} className="hover:underline">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex items-center">
+          <Phone className="mr-2" />
+          <span>{siteConfig.phone}</span>
         </div>
-        <button aria-label="Open menu" className="md:hidden">
-          {/* Hamburger icon */}
-        </button>
       </div>
-    </nav>
+    </header>
   );
 };
-
-export default Navbar;

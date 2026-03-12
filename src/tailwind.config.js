@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -6,15 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'rgb(var(--color-primary))',
-        secondary: 'rgb(var(--color-secondary))',
-        accent: 'rgb(var(--color-accent))',
-        background: 'rgb(var(--color-background))',
-        surface: 'rgb(var(--color-surface))',
-        text: 'rgb(var(--color-text))',
-        muted: 'rgb(var(--color-muted))',
+        primary: '#0056b3',
+        secondary: '#f8f9fa',
       },
     },
   },
   plugins: [],
-};
+}

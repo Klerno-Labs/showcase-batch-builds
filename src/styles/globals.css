@@ -2,12 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-primary: 0, 86, 179; /* Trust Blue */
-  --color-secondary: 248, 249, 250; /* Off-White */
-  --color-accent: 255, 153, 0; /* Action Orange */
-  --color-background: 255, 255, 255; /* Pure White */
-  --color-surface: 222, 226, 230; /* Light Gray */
-  --color-text: 33, 37, 41; /* Dark Charcoal */
-  --color-muted: 73, 80, 87; /* Slate Gray */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

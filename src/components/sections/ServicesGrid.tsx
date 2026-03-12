@@ -1,31 +1,32 @@
-import Card from "@/components/ui/Card";
+import { Card } from "@/components/ui/Card";
 
 const services = [
   {
-    title: "Residential Electrical Services",
-    description: "Expert electrical installations and repairs for your home.",
-    link: "/services/residential",
+    title: "Electrical Installations",
+    description: "Expert installations for all your electrical needs.",
+    link: "/services/electrical-installations",
   },
   {
-    title: "Commercial Electrical Solutions",
-    description: "Reliable electrical services for businesses and commercial properties.",
-    link: "/services/commercial",
+    title: "Home Renovations",
+    description: "Transform your home with our renovation services.",
+    link: "/services/home-renovations",
   },
   {
-    title: "Emergency Electrical Repairs",
-    description: "24/7 emergency services to address your urgent electrical needs.",
-    link: "/services/emergency",
+    title: "Emergency Repairs",
+    description: "24/7 emergency repair services to keep you safe.",
+    link: "/services/emergency-repairs",
   },
 ];
 
-const ServicesGrid: React.FC = () => {
+export const ServicesGrid: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service, index) => (
-        <Card key={index} title={service.title} description={service.description} link={service.link} />
-      ))}
-    </div>
+    <section className="py-16">
+      <h2 className="text-3xl font-bold text-center">Our Services</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {services.map((service) => (
+          <Card key={service.title} title={service.title} description={service.description} link={service.link} />
+        ))}
+      </div>
+    </section>
   );
 };
-
-export default ServicesGrid;

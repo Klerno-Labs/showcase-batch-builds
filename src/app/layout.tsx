@@ -1,21 +1,20 @@
-"use client";
-
-import { ReactNode } from "react";
+import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
-import "@/styles/globals.css";
 
 export const metadata = {
-  title: "Aspen Dental Studio",
-  description: "Your trusted partner in family dentistry.",
+  title: siteConfig.name,
+  description: siteConfig.description,
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
+    <html lang="en">
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
   );
 }

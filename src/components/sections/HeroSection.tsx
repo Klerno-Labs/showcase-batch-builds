@@ -1,20 +1,23 @@
-import Image from "next/image";
+import { cn } from "@/lib/cn";
 
 interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  imageUrl: string;
+  heading: string;
+  subtext: string;
+  cta: { primary: string; secondary: string };
+  image: string;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle, ctaText, imageUrl }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, cta, image }) => {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }}>
+    <section className="relative min-h-[80vh] bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
       <div className="absolute inset-0 bg-black opacity-30"></div>
-      <div className="relative z-10 text-white text-center">
-        <h1 className="text-5xl font-bold mb-4">{title}</h1>
-        <p className="text-xl mb-8">{subtitle}</p>
-        <button className="bg-primary text-white px-6 py-3 rounded-lg">{ctaText}</button>
+      <div className="relative z-10 flex flex-col justify-center items-start p-8 text-white">
+        <h1 className="text-4xl font-bold">{heading}</h1>
+        <p className="mt-4 text-lg">{subtext}</p>
+        <div className="mt-6">
+          <button className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80">{cta.primary}</button>
+          <button className="ml-4 px-4 py-2 border border-white text-white rounded-lg hover:bg-white hover:text-primary">{cta.secondary}</button>
+        </div>
       </div>
     </section>
   );

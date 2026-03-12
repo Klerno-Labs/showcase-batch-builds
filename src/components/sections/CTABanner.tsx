@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 
 interface CTABannerProps {
   heading: string;
@@ -6,14 +6,12 @@ interface CTABannerProps {
   buttonText: string;
 }
 
-const CTABanner: React.FC<CTABannerProps> = ({ heading, description, buttonText }) => {
+export const CTABanner: React.FC<CTABannerProps> = ({ heading, description, buttonText }) => {
   return (
-    <section className="py-16 bg-blue-600 text-white text-center">
+    <section className="py-16 bg-primary text-white text-center">
       <h2 className="text-3xl font-bold">{heading}</h2>
       <p className="mt-4">{description}</p>
-      <Button label={buttonText} className="mt-6" />
+      <Button label={buttonText} onClick={() => alert("Button Clicked!")} />
     </section>
   );
 };
-
-export default CTABanner;

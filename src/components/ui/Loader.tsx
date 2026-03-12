@@ -1,7 +1,12 @@
-export const Loader: React.FC = () => {
+interface LoaderProps {
+  isLoading: boolean;
+}
+
+export const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
+  if (!isLoading) return null;
   return (
     <div className="flex justify-center items-center">
-      <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+      <div className="loader"></div>
     </div>
   );
 };
