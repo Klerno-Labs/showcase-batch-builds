@@ -1,27 +1,49 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 interface HeroSectionProps {
   heading: string;
-  subtext?: string;
-  ctaPrimary: { label: string; href: string };
-  ctaSecondary?: { label: string; href: string };
+  subtext: string;
+  ctaPrimary: string;
+  ctaSecondary?: string;
   image: string;
 }
 
-export function HeroSection({ heading, subtext, ctaPrimary, ctaSecondary, image }: HeroSectionProps) {
+export default function HeroSection({ heading, subtext, ctaPrimary, ctaSecondary, image }: HeroSectionProps) {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
-      <div className="absolute inset-0 bg-black opacity-30"></div>
-      <div className="relative z-10 text-white text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">{heading}</h1>
-        {subtext && <p className="mt-4 text-xl sm:text-2xl">{subtext}</p>}
-        <div className="mt-6">
-          <a href={ctaPrimary.href} className="bg-primary text-white py-2 px-4 rounded-lg">{ctaPrimary.label}</a>
+    <section className={cn("relative min-h-[80vh] flex items-center justify-center bg-gray-900 text-white")}>
+      <Image
+        src={image}
+        alt="Hero Image"
+        layout="fill"
+        objectFit="cover"
+        priority={true}
+        className={cn("absolute inset-0 z-0")}
+      />
+      <div className={cn("relative z-10 text-center p-4")}>
+        <motion.h1
+          initial={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.6 }}
+          className={cn("text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight")}
+        >
+          {heading}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={cn("text-xl sm:text-2xl font-semibold")}
+        >
+          {subtext}
+        </motion.p>
+        <div className={cn("mt-6 space-x-4")}>
+          <button className={cn("bg-primary text-white px-6 py-3 rounded-lg")}>{ctaPrimary}</button>
           {ctaSecondary && (
-            <a href={ctaSecondary.href} className="ml-4 border border-white text-white py-2 px-4 rounded-lg">{ctaSecondary.label}</a>
+            <button className={cn("border border-white text-white px-6 py-3 rounded-lg")}>{ctaSecondary}</button>
           )}
         </div>
       </div>

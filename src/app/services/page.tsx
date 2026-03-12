@@ -1,28 +1,33 @@
-"use client";
-
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesOverview } from "@/components/sections/ServicesOverview";
+import ServicesList from "@/components/sections/ServicesList";
+import CaseStudies from "@/components/sections/CaseStudies";
 import { images } from "@/config/images";
 
 export const metadata = {
-  title: "Our Services | Core Strength CrossFit",
-  description: "Explore the services offered at Core Strength CrossFit.",
+  title: "Our Services | Summit Real Estate",
+  description: "Explore the services offered by Summit Real Estate.",
   openGraph: {
-    title: "Our Services | Core Strength CrossFit",
-    description: "Explore the services offered at Core Strength CrossFit.",
-    image: images.service-1.src,
+    title: "Our Services | Summit Real Estate",
+    description: "Explore the services offered by Summit Real Estate.",
+    image: images.hero.src,
   },
 };
 
 export default function Services() {
   return (
     <>
-      <HeroSection
-        heading="Our Services"
-        subtext="Tailored fitness solutions to meet your needs."
-        image={images.service-1.src}
+      <ServicesList
+        services={[
+          { title: "Residential Sales", description: "Helping you buy or sell your home." },
+          { title: "Commercial Real Estate", description: "Expert guidance for commercial property transactions." },
+          { title: "Investment Properties", description: "Maximize your investment potential with our services." },
+        ]}
       />
-      <ServicesOverview />
+      <CaseStudies
+        studies={[
+          { title: "Luxury Home Sale", description: "Successfully sold a luxury home in the heart of the city.", link: "#" },
+          { title: "Commercial Space Lease", description: "Assisted a client in leasing a prime commercial space.", link: "#" },
+        ]}
+      />
     </>
   );
 }

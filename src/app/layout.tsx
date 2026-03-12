@@ -1,23 +1,17 @@
 "use client";
 
 import { ReactNode } from "react";
-import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
+import { cn } from "@/lib/cn";
 import "@/styles/globals.css";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 
-export const metadata = {
-  title: "Core Strength CrossFit",
-  description: "Premium fitness facility offering personalized training, group classes, and holistic wellness programs.",
-};
-
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <div className={cn("flex flex-col min-h-screen")}>
+      <Header />
+      <main className={cn("flex-grow")}>{children}</main>
+      <Footer />
+    </div>
   );
 }
