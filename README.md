@@ -1,23 +1,21 @@
-# Core Strength CrossFit Website
+# Pegrio Business Website
 
-## Description
-This project is a modern, clean, and professional website for Core Strength CrossFit, a premium fitness facility offering personalized training, group classes, and holistic wellness programs. The website is designed to engage local customers and online visitors, promoting lead generation through effective call-to-action elements.
+A modern, clean, and professional website designed to generate leads for a general business audience. Built with Next.js and Tailwind CSS, this website is fully responsive and optimized for performance.
 
 ## Tech Stack
 - Next.js 14+
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- next/image for optimized images
-- next/font for web fonts
+- Next/Image for optimized images
 
 ## Getting Started
 
 ### Install
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/core-strength-crossfit.git
-   cd core-strength-crossfit
+   git clone https://github.com/yourusername/pegrio-business-website.git
+   cd pegrio-business-website
    ```
 
 2. Install dependencies:
@@ -39,7 +37,10 @@ npm run build
 ```
 
 ### Deploy
-To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md file.
+To export the project for static hosting:
+```bash
+npm run export
+```
 
 ## Project Structure Overview
 ```
@@ -47,7 +48,12 @@ To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md file.
   /app
     /api
       /contact
+        route.ts
     /components
+      Header.tsx
+      Footer.tsx
+      Hero.tsx
+      ...
     /config
       images.ts
     /pages
@@ -55,15 +61,24 @@ To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md file.
       about.tsx
       services.tsx
       contact.tsx
-    /styles
-      globals.css
+      faq.tsx
   /public
-  /utils
+    /images
+  /styles
+    globals.css
+  layout.tsx
+  ...
 ```
 
 ## Image Customization
-To change any image on the site, edit the `src/config/images.ts` file. Each image slot is defined with a `src` URL and `alt` text. The following slots are available:
+To change any image on the site, edit `src/config/images.ts`:
 
+1. Find the image slot you want to change (e.g., "hero", "about").
+2. Replace the `src` URL with your own image URL.
+3. Update the `alt` text to describe the new image.
+4. Save the file — every component on the site updates automatically.
+
+### Image Slots
 - **hero**: Homepage hero banner
 - **hero-alt**: Alternative hero image
 - **about**: About page image
@@ -74,17 +89,24 @@ To change any image on the site, edit the `src/config/images.ts` file. Each imag
 - **gallery-2**: Gallery image 2
 - **team-1**: Team member photo
 - **gallery-3**: Gallery image 3
-- **cta**: Call-to-action section background
+- **cta**: Call-to-action background
 - **testimonial-bg**: Testimonials section background
 
 ## Brand Customization
-To change colors, modify the `tailwind.config.js` file. For fonts, update the `layout.tsx` file to change the Google Font. The logo can be changed in the `images.ts` file.
+### Changing Colors
+Modify the colors in `tailwind.config.js` under the `theme.extend.colors` section.
 
-## Environment Variables
-Ensure to set the following environment variables in your `.env` file:
-```
-NEXT_PUBLIC_API_URL=https://api.example.com
-```
+### Changing Fonts
+Update the font in `layout.tsx` by changing the import statement for `next/font`.
 
-## Deployment Instructions
-Follow the instructions in the DEPLOYMENT_GUIDE.md file for deploying to Vercel.
+### Changing Logo
+If a logo slot exists, update the image URL in `src/config/images.ts`.
+
+## Environment Variables Needed
+- `NEXT_PUBLIC_API_URL`: The base URL for your API.
+
+## Deployment Instructions (Vercel)
+1. Push your code to a Git repository (GitHub, GitLab, etc.).
+2. Go to Vercel and import your project.
+3. Set up environment variables in the Vercel dashboard.
+4. Deploy your project.
