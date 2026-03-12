@@ -1,39 +1,17 @@
-"use client";
-import { images } from "@/config/images";
-import ServiceCard from "@/components/ui/ServiceCard";
+import { ServiceCard } from "@/components/ui/ServiceCard";
+import { servicesData } from "@/config/services";
 
-const services = [
-  {
-    id: "1",
-    title: "Grooming",
-    description: "Full grooming services including wash, cut, and styling.",
-    image: images.service1.src,
-  },
-  {
-    id: "2",
-    title: "Boarding",
-    description: "Safe and comfortable boarding for your pets while you're away.",
-    image: images.service2.src,
-  },
-  {
-    id: "3",
-    title: "Daycare",
-    description: "Fun and engaging daycare services for your furry friends.",
-    image: images.service3.src,
-  },
-];
-
-const ServicesSection = () => {
+export const ServicesSection = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <h2 className="text-3xl font-bold text-center">Our Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        {services.map(service => (
-          <ServiceCard key={service.id} title={service.title} description={service.description} image={service.image} />
-        ))}
+    <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesData.map((service) => (
+            <ServiceCard key={service.id} {...service} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
-
-export default ServicesSection;

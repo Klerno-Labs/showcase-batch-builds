@@ -1,16 +1,25 @@
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { CTASection } from "@/components/sections/CTASection";
 import { images } from "@/config/images";
-import { siteConfig } from "@/config/site";
-import HeroSection from "@/components/sections/HeroSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import Testimonials from "@/components/sections/Testimonials";
-import CTASection from "@/components/sections/CTASection";
+
+export const metadata = {
+  title: "Home | Wagmore Dog Grooming",
+  description: "Welcome to Wagmore Dog Grooming, your local pet care experts.",
+  openGraph: {
+    title: "Home | Wagmore Dog Grooming",
+    description: "Welcome to Wagmore Dog Grooming, your local pet care experts.",
+    image: images.hero.src,
+  },
+};
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HeroSection
-        heading="Welcome to Wagmore Dog Grooming"
-        subtext="Your pet deserves the best care and love."
+        heading="Your Pet Deserves the Best"
+        subtext="Providing loving care for your furry friends."
         ctaPrimary="Book Now"
         ctaSecondary="Learn More"
         imageSrc={images.hero.src}
@@ -18,10 +27,10 @@ export default function HomePage() {
       <ServicesSection />
       <Testimonials />
       <CTASection
-        heading="Join Our Community"
-        description="Sign up for our newsletter to get the latest updates and offers."
+        heading="Join Our Family"
+        description="Sign up for our newsletter to stay updated."
         buttonLabel="Subscribe"
       />
-    </main>
+    </>
   );
 }
