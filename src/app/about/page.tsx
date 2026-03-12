@@ -1,28 +1,18 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { CompanyHistory } from "@/components/sections/CompanyHistory";
-import { TeamIntroduction } from "@/components/sections/TeamIntroduction";
+import { cn } from "@/lib/utils";
 import { images } from "@/config/images";
 
 export const metadata = {
-  title: "About Us | Summit Electric",
-  description: "Learn more about Summit Electric and our commitment to quality workmanship.",
-  openGraph: {
-    title: "About Us | Summit Electric",
-    description: "Learn more about Summit Electric and our commitment to quality workmanship.",
-    image: images.hero.src,
-  },
+  title: "About Us - Summit Electric",
+  description: "Learn more about Summit Electric and our commitment to quality home improvement services.",
 };
 
 export default function AboutPage() {
   return (
-    <div>
-      <HeroSection
-        heading="About Summit Electric"
-        subtext="Your trusted partner in home improvement."
-        image={images.hero-alt.src}
-      />
-      <CompanyHistory />
-      <TeamIntroduction />
-    </div>
+    <main id="main" className={cn("pt-20")}>
+      <h1 className="text-4xl font-bold">About Us</h1>
+      <h2 className="text-3xl font-bold mt-4">Our Story</h2>
+      <p className="mt-2">Summit Electric was founded on the principles of quality, reliability, and customer satisfaction. Our team is dedicated to providing the best home improvement services in Houston, TX.</p>
+      <img src={images["about"].src} alt={images["about"].alt} width={images["about"].width} height={images["about"].height} />
+    </main>
   );
 }
