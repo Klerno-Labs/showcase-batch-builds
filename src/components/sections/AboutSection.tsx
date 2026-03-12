@@ -1,8 +1,22 @@
-const AboutSection: React.FC = () => {
+"use client";
+import React from 'react';
+
+interface AboutSectionProps {
+  history: string;
+  values: string[];
+}
+
+const AboutSection: React.FC<AboutSectionProps> = ({ history, values }) => {
   return (
-    <section>
-      <h2 className="text-3xl font-bold">About Us</h2>
-      <p>Wagmore Dog Grooming has been serving the community for over a decade, providing exceptional grooming services.</p>
+    <section className="py-16">
+      <h2 className="text-4xl font-bold text-center mb-8">About Us</h2>
+      <p className="text-lg text-center mb-4">{history}</p>
+      <h3 className="text-2xl font-semibold text-center mb-4">Our Values</h3>
+      <ul className="list-disc list-inside mx-auto max-w-md">
+        {values.map((value, index) => (
+          <li key={index} className="text-lg">{value}</li>
+        ))}
+      </ul>
     </section>
   );
 };

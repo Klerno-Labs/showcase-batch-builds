@@ -1,21 +1,21 @@
 export const siteConfig = {
-  name: "Summit Electric",
-  description: "Trusted local service provider delivering quality workmanship and reliable home improvement solutions.",
-  url: "https://example.com",
-  phone: "(512) 555-0199",
-  email: "info@summitelectric.com",
-  address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
-  hours: "Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed",
+  name: 'Summit Real Estate',
+  description: 'Your trusted partner in buying, selling, and investing in real estate.',
+  phone: '(512) 555-1234',
+  email: 'info@summitrealestate.com',
+  address: '4521 Westheimer Rd, Suite 200, Houston, TX 77027',
+  hours: 'Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed',
   links: {
-    menu: [
-      { label: "Home", href: "/" },
-      { label: "About", href: "/about" },
-      { label: "Services", href: "/services" },
-      { label: "Contact", href: "/contact" },
+    nav: [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About Us' },
+      { href: '/services', label: 'Services' },
+      { href: '/contact', label: 'Contact' },
     ],
     social: [
-      { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
-      { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+      { href: 'https://facebook.com', label: 'Facebook' },
+      { href: 'https://twitter.com', label: 'Twitter' },
+      { href: 'https://instagram.com', label: 'Instagram' },
     ],
   },
 };

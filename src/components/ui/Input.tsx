@@ -1,23 +1,27 @@
 "use client";
-
-import { cn } from "@/lib/cn";
+import React from 'react';
+import { cn } from '@/lib/cn';
 
 interface InputProps {
+  label: string;
   type: string;
-  placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
 }
 
-export const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, className }) => {
+const Input: React.FC<InputProps> = ({ label, type, value, onChange }) => {
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      className={cn("border rounded-md p-2", className)}
-    />
+    <div className="flex flex-col mb-4">
+      <label className="mb-2 font-semibold">{label}</label>
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        className={cn('border border-muted rounded-md p-2')}
+        required
+      />
+    </div>
   );
 };
+
+export default Input;

@@ -1,22 +1,37 @@
 "use client";
+import React from 'react';
 import Image from 'next/image';
-import { images } from '@/config/images';
+import { cn } from '@/lib/cn';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  heading: string;
+  subtext: string;
+  ctaPrimary: string;
+  ctaSecondary?: string;
+  image: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, ctaPrimary, ctaSecondary, image }) => {
   return (
-    <section className="min-h-[80vh] flex items-center justify-between bg-cover" style={{ backgroundImage: `url(${images["hero"].src})` }}>
-      <div className="p-8">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">{images["hero"].alt}</h1>
-        <p className="text-xl sm:text-2xl font-semibold">Your smile is our priority.</p>
-        <button className="bg-primary text-white py-2 px-4 rounded-lg">Book Now</button>
-      </div>
+    <section className="relative min-h-[80vh] flex items-center justify-center text-center bg-gray-50">
       <Image
-        src={images["hero"].src}
-        alt={images["hero"].alt}
-        width={images["hero"].width}
-        height={images["hero"].height}
+        src={image}
+        alt="Hero Image"
+        layout="fill"
+        objectFit="cover"
+        className="absolute inset-0 z-0"
         priority={true}
       />
+      <div className="relative z-10 text-white">
+        <h1 className="text-6xl font-bold">{heading}</h1>
+        <p className="mt-4 text-xl">{subtext}</p>
+        <div className="mt-6">
+          <button className="bg-accent text-white px-6 py-3 rounded-lg">{ctaPrimary}</button>
+          {ctaSecondary && (
+            <button className="ml-4 border border-white text-white px-6 py-3 rounded-lg">{ctaSecondary}</button>
+          )}
+        </div>
+      </div>
     </section>
   );
 };

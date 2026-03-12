@@ -1,20 +1,22 @@
 "use client";
-
-import { cn } from "@/lib/cn";
+import React from 'react';
+import { cn } from '@/lib/cn';
 
 interface ButtonProps {
-  label: string;
+  text: string;
   onClick?: () => void;
-  className?: string;
+  variant?: 'primary' | 'secondary';
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick, variant = 'primary' }) => {
+  const baseStyles = 'px-4 py-2 rounded-lg transition';
+  const variantStyles = variant === 'primary' ? 'bg-accent text-white' : 'bg-secondary text-white';
+
   return (
-    <button
-      onClick={onClick}
-      className={cn("px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80", className)}
-    >
-      {label}
+    <button className={cn(baseStyles, variantStyles)} onClick={onClick}>
+      {text}
     </button>
   );
 };
+
+export default Button;

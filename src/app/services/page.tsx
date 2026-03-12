@@ -1,30 +1,19 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { TrustSignals } from "@/components/sections/TrustSignals";
-import { FAQs } from "@/components/sections/FAQs";
-import { images } from "@/config/images";
+import { images } from '@/config/images';
+import ServicesList from '@/components/sections/ServicesList';
+import CaseStudies from '@/components/sections/CaseStudies';
 
-export const metadata = {
-  title: "Our Services | Summit Electric",
-  description: "Explore the range of services offered by Summit Electric.",
-  openGraph: {
-    title: "Our Services | Summit Electric",
-    description: "Explore the range of services offered by Summit Electric.",
-    image: images.hero.src,
-  },
-};
-
-export default function ServicesPage() {
+export default function Services() {
   return (
-    <div>
-      <HeroSection
-        heading="Our Services"
-        subtext="Professional home improvement services tailored to your needs."
-        image={images.hero-alt.src}
+    <>
+      <h1 className="text-4xl font-bold text-center my-8">Our Services</h1>
+      <ServicesList
+        services={[
+          { title: "Residential Sales", description: "Helping you buy or sell your home with ease." },
+          { title: "Commercial Real Estate", description: "Expertise in commercial property transactions." },
+          { title: "Investment Consulting", description: "Guidance on real estate investments for maximum returns." },
+        ]}
       />
-      <ServicesGrid />
-      <TrustSignals />
-      <FAQs />
-    </div>
+      <CaseStudies />
+    </>
   );
 }

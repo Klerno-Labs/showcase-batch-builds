@@ -2,25 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-a {
-  color: #0056b3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+:root {
+  --color-primary: 44, 62, 80; /* #2C3E50 */
+  --color-secondary: 24, 188, 156; /* #18BC9C */
+  --color-accent: 231, 76, 60; /* #E74C3C */
+  --color-background: 236, 240, 241; /* #ECF0F1 */
+  --color-surface: 255, 255, 255; /* #FFFFFF */
+  --color-text: 52, 73, 94; /* #34495E */
+  --color-muted: 189, 195, 199; /* #BDC3C7 */
 }

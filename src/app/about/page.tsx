@@ -1,18 +1,22 @@
-import { cn } from "@/lib/utils";
-import { images } from "@/config/images";
+import { images } from '@/config/images';
+import { siteConfig } from '@/config/site';
+import AboutSection from '@/components/sections/AboutSection';
+import TeamMemberProfiles from '@/components/sections/TeamMemberProfiles';
 
-export const metadata = {
-  title: "About Us - Summit Electric",
-  description: "Learn more about Summit Electric and our commitment to quality home improvement services.",
-};
-
-export default function AboutPage() {
+export default function About() {
   return (
-    <main id="main" className={cn("pt-20")}>
-      <h1 className="text-4xl font-bold">About Us</h1>
-      <h2 className="text-3xl font-bold mt-4">Our Story</h2>
-      <p className="mt-2">Summit Electric was founded on the principles of quality, reliability, and customer satisfaction. Our team is dedicated to providing the best home improvement services in Houston, TX.</p>
-      <img src={images["about"].src} alt={images["about"].alt} width={images["about"].width} height={images["about"].height} />
-    </main>
+    <>
+      <h1 className="text-4xl font-bold text-center my-8">About Us</h1>
+      <AboutSection
+        history="Summit Real Estate was founded with the mission to provide exceptional real estate services to our community. Our team of experienced professionals is dedicated to helping clients navigate the complex world of real estate."
+        values={[
+          "Integrity",
+          "Customer Focus",
+          "Innovation",
+          "Community Engagement"
+        ]}
+      />
+      <TeamMemberProfiles />
+    </>
   );
 }
