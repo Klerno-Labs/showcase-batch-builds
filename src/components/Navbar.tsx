@@ -1,34 +1,29 @@
-```typescript
+"use client";
 import Link from 'next/link';
-import { images } from '../config/images';
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
-interface NavbarProps {
-  logo: string;
-  navLinks: { label: string; href: string }[];
-  ctaButton: { label: string; href: string };
-}
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Navbar: React.FC<NavbarProps> = ({ logo, navLinks, ctaButton }) => {
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <img src={logo} alt="Core Strength CrossFit Logo" className="h-10" />
-        </Link>
-        <div className="hidden md:flex space-x-4">
-          {navLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="text-gray-800 hover:underline">
-              {link.label}
-            </Link>
-          ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <Link href="/" className="text-lg font-bold">Business Logo</Link>
+        <button aria-label="Open menu" onClick={toggleMenu}>
+          {isOpen ? 'Close' : 'Menu'}
+        </button>
+        <div className={cn("absolute top-0 left-0 w-full bg-white transition-transform transform", { 'translate-y-0': isOpen, 'translate-y-[-100%]': !isOpen })}>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/faq">FAQ</Link>
         </div>
-        <Link href={ctaButton.href} className="bg-primary text-white py-2 px-4 rounded-lg">
-          {ctaButton.label}
-        </Link>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-```

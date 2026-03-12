@@ -1,23 +1,27 @@
-```typescript
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+import { Metadata } from 'next';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
-  title: "General Business",
-  description: "Your partner in business success.",
+  title: 'Home | General Business',
+  description: 'Welcome to our general business website, where we provide exceptional services to our clients.',
+  openGraph: {
+    title: 'Home | General Business',
+    description: 'Welcome to our general business website, where we provide exceptional services to our clients.',
+    images: ['/images/hero.jpg'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body className="bg-white">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
 }
-```
