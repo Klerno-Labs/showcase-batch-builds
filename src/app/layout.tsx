@@ -1,30 +1,30 @@
-"use client";
-import { Metadata } from "next";
 import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
-import { siteConfig } from "@/config/site";
+import { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
-  title: siteConfig.name,
-  description: siteConfig.description,
+export const metadata = {
+  title: "Wagmore Dog Grooming",
+  description: "Quality pet grooming services in your area.",
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    images: [siteConfig.ogImage],
-    locale: "en_US",
-    type: "website",
+    title: "Wagmore Dog Grooming",
+    description: "Quality pet grooming services in your area.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className={cn("bg-white text-gray-900")}>
-        {children}
+      <body className={cn("bg-background text-text")}>
+        <header>
+          {/* Navigation component here */}
+        </header>
+        <main>{children}</main>
+        <footer>
+          {/* Footer component here */}
+        </footer>
       </body>
     </html>
   );
-}
+};
+
+export default Layout;

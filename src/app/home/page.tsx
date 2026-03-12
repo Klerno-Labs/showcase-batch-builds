@@ -1,26 +1,33 @@
 import { images } from "@/config/images";
-import { siteConfig } from "@/config/site";
-import HeroSection from "@/components/sections/HeroSection";
-import ServicesGrid from "@/components/sections/ServicesGrid";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import CTABanner from "@/components/sections/CTABanner";
+import HeroSection from "@/components/HeroSection";
+import ContactForm from "@/components/ContactForm";
 
-export default function HomePage() {
+export const metadata = {
+  title: "Wagmore Dog Grooming - Home",
+  description: "Quality pet grooming services in your area.",
+  openGraph: {
+    title: "Wagmore Dog Grooming - Home",
+    description: "Quality pet grooming services in your area.",
+    image: images["hero"].src,
+  },
+};
+
+const HomePage = () => {
   return (
     <main>
       <HeroSection
-        heading="Quality Electrical Services You Can Trust"
-        subtext="Providing reliable and professional electrical solutions for your home."
-        cta={{ primary: "Schedule Service", secondary: "Call Now" }}
-        image={images.hero.src}
+        heading="Welcome to Wagmore Dog Grooming"
+        subtext="Your pet deserves the best care."
+        ctaPrimary="Book Now"
+        ctaSecondary="Learn More"
+        imageSrc={images["hero"].src}
       />
-      <ServicesGrid />
-      <TestimonialsSection />
-      <CTABanner
-        heading="Ready to Get Started?"
-        description="Contact us today for a free consultation!"
-        buttonText="Get a Quote"
-      />
+      <section className="pt-20">
+        <h2 className="text-3xl font-bold">Contact Us</h2>
+        <ContactForm />
+      </section>
     </main>
   );
-}
+};
+
+export default HomePage;

@@ -1,19 +1,22 @@
-import { images } from "@/config/images";
-import CompanyHistory from "@/components/sections/CompanyHistory";
-import TeamIntroduction from "@/components/sections/TeamIntroduction";
+export const metadata = {
+  title: "About Us - Wagmore Dog Grooming",
+  description: "Learn more about Wagmore Dog Grooming and our team.",
+  openGraph: {
+    title: "About Us - Wagmore Dog Grooming",
+    description: "Learn more about Wagmore Dog Grooming and our team.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+  },
+};
 
-export default function AboutPage() {
+const AboutPage = () => {
   return (
     <main>
-      <section className="py-16">
-        <h1 className="text-4xl font-bold text-center">About Us</h1>
-        <p className="text-lg text-center mt-4">
-          At Summit Electric, we pride ourselves on delivering top-notch electrical services with a focus on quality and customer satisfaction.
-        </p>
-        <img src={images.about.src} alt={images.about.alt} className="w-full h-auto mt-8" />
+      <section className="pt-20">
+        <h1 className="text-4xl font-bold">About Us</h1>
+        <p>At Wagmore Dog Grooming, we believe every pet deserves the best care. Our team is dedicated to providing top-notch grooming services in a loving environment.</p>
       </section>
-      <CompanyHistory />
-      <TeamIntroduction />
     </main>
   );
-}
+};
+
+export default AboutPage;

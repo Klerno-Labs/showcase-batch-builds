@@ -1,20 +1,21 @@
-import Image from "next/image";
+import { images } from "@/config/images";
 
 interface ServiceCardProps {
-  id: string;
+  icon: string;
   title: string;
   description: string;
-  price: string;
-  icon: string;
+  link: string;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, price, icon }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-      <Image src={icon} alt={title} width={64} height={64} className="mb-4" />
+    <div className="bg-surface p-4 rounded-lg shadow-card hover:shadow-hover transition-shadow duration-300">
+      <img src={icon} alt={title} className="h-16 w-16" />
       <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="mt-2 text-gray-600">{description}</p>
-      <p className="mt-2 font-bold">{price}</p>
+      <p className="mt-2 text-muted">{description}</p>
+      <a href={link} className="text-accent mt-4 block">Learn More</a>
     </div>
   );
 };
+
+export default ServiceCard;

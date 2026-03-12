@@ -1,11 +1,12 @@
-```typescript
+"use client";
 import { useState } from 'react';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '', _gotcha: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [honeypotValue, setHoneypotValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -14,37 +15,33 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData._gotcha) return; // Bot detected
+    if (honeypotValue) return; // Bot detected
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setError('All fields are required.');
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
+      const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
       if (res.ok) {
         setIsSuccess(true);
+        setFormData({ name: '', email: '', message: '' }); // Reset form
       } else {
-        setError('Something went wrong. Please try again.');
+        setError("Something went wrong. Please try again.");
       }
     } catch {
-      setError('Network error. Please try again.');
+      setError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-      <div className="mb-4">
-        <label htmlFor="name" className="block mb-2">Name</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="border p-2 w-full" />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="email" className="block mb-2">Email</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="border p-2 w-full" />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="message" className="block mb-2">Message</label>
-        <textarea id="message" name="message" value={formData.message} onChange={handleChange} required className="border p-2 w-full" />
-      </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
+      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
+      <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
+      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" onChange={(e) => setHoneypotValue(e.target.value)} />
       <button type="submit" disabled={isSubmitting} className="bg-primary text-white py-2 px-4 rounded">
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
@@ -55,4 +52,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-```

@@ -1,18 +1,28 @@
-import { cn } from "@/lib/cn";
+"use client";
+import { cn } from "@/lib/utils";
 
-interface ButtonProps {
-  label: string;
-  onClick?: () => void;
-  className?: string;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  iconOnly?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
+const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', iconOnly, className, ...props }) => {
+  const baseStyles = "py-2 px-4 rounded-lg transition-all duration-200";
+  const variantStyles = {
+    primary: "bg-primary text-white hover:bg-primary/80",
+    secondary: "bg-secondary text-white hover:bg-secondary/80",
+    outline: "border border-primary text-primary hover:bg-primary/10",
+    ghost: "bg-transparent text-primary hover:bg-primary/10",
+  };
+
   return (
     <button
-      onClick={onClick}
-      className={cn("px-4 py-2 bg-blue-600 text-white rounded-lg", className)}
+      className={cn(baseStyles, variantStyles[variant], className)}
+      aria-label={iconOnly ? "Button" : undefined}
+      {...props}
     >
-      {label}
+      {children}
     </button>
   );
 };
