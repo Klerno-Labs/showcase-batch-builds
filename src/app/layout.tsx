@@ -1,20 +1,26 @@
-import { siteConfig } from "@/config/site";
-import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
+import { Metadata } from 'next';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 
-export const metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+export const metadata: Metadata = {
+  title: 'Aspen Dental Studio',
+  description: 'Providing quality dental care with a patient-first approach.',
+  openGraph: {
+    title: 'Aspen Dental Studio',
+    description: 'Providing quality dental care with a patient-first approach.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop',
+  },
+  canonical: 'https://example.com',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <div>
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
   );
-}
+};
+
+export default Layout;

@@ -1,25 +1,26 @@
-import { images } from "@/config/images";
+import { cn } from "@/lib/utils";
 
-const testimonials = [
-  { name: "Maria L.", feedback: "I had a great experience! The staff was incredibly friendly and made me feel comfortable." },
-  { name: "James T.", feedback: "Excellent service and a very clean office. Highly recommend!" },
-  { name: "Sarah P.", feedback: "The dental care I received was top-notch. I appreciate their patient-first approach." },
-];
-
-export const Testimonials: React.FC = () => {
+const TestimonialsSection = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-12">What Our Patients Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white shadow-md rounded-xl p-6">
-              <p className="italic">"{testimonial.feedback}"</p>
-              <p className="mt-4 font-semibold">{testimonial.name}</p>
-            </div>
-          ))}
+    <section className="py-16 bg-gray-50">
+      <h2 className="text-3xl font-bold text-center mb-8">What Our Patients Say</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Example testimonial card */}
+        <div className={cn("p-6 bg-white rounded-xl shadow-md")}>
+          <p className="text-lg italic">"The staff at Aspen Dental Studio are amazing! They made me feel comfortable and cared for during my visit."</p>
+          <p className="mt-4 font-bold">Maria L.</p>
+        </div>
+        <div className={cn("p-6 bg-white rounded-xl shadow-md")}>
+          <p className="text-lg italic">"I had a great experience with my teeth cleaning. Highly recommend!"</p>
+          <p className="mt-4 font-bold">James T.</p>
+        </div>
+        <div className={cn("p-6 bg-white rounded-xl shadow-md")}>
+          <p className="text-lg italic">"The team is very professional and friendly. I love my new smile!"</p>
+          <p className="mt-4 font-bold">Sarah M.</p>
         </div>
       </div>
     </section>
   );
 };
+
+export default TestimonialsSection;
