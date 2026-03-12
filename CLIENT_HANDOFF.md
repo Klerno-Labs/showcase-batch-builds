@@ -1,51 +1,57 @@
-# Summit Real Estate Website Handoff
+# Client Handoff for Core Strength CrossFit Website
 
-## Overview of What Was Built
-We have created a modern and professional website for Summit Real Estate, which includes the following pages:
+## What Was Built
+We have created a modern, clean, and professional website for Core Strength CrossFit. Below is a page-by-page overview:
 
 ### Home Page
-- Features a full-screen hero section with a clear call to action.
-- Showcases featured properties, services overview, and client testimonials.
+- **Hero Section**: Features a full-screen image with a call-to-action button.
+- **Services Overview**: Highlights key services offered.
+- **Testimonials**: Displays customer feedback.
+- **CTA Banner**: Encourages visitors to take action.
 
 ### About Page
-- Contains a hero section with the company history and team member profiles.
+- **Mission and Vision**: Clearly states the purpose and goals of Core Strength CrossFit.
+- **Team Introduction**: Introduces the team members with their bios.
+- **Community Involvement**: Showcases the gym's engagement with the local community.
 
 ### Services Page
-- Lists services in an accordion format and includes case studies.
+- **Service Descriptions**: Detailed information about each service offered.
+- **Pricing Information**: Transparent pricing for services.
+- **FAQ Section**: Answers to common questions.
 
 ### Contact Page
-- Includes a contact form and an interactive map for easy navigation.
+- **Contact Form**: Allows visitors to reach out directly.
+- **Map Integration**: Shows the location of the gym.
+- **Social Media Links**: Connects visitors to social media profiles.
 
 ## Changing Images
-All images are controlled from ONE file: `src/config/images.ts`. Each image slot has a comment explaining where it appears on the site.
-
-### To Swap an Image:
+All images are controlled from ONE file: `src/config/images.ts`. Each image slot has a comment explaining where it appears on the site. To swap an image:
 1. Open `src/config/images.ts`.
-2. Find the image slot you want to change (e.g., `hero`).
-3. Replace the `src` URL with your new image URL.
-4. Update the `alt` text to describe the new image.
-5. Save the file — the change will appear on every page that uses that image.
+2. Find the image slot you want to change (e.g., "hero").
+3. Replace the `src` URL with your new image URL and update the `alt` text.
+4. Save the file — the change will appear on every page that uses that image.
 
 ### Supported Formats
-You can use any web-accessible image URL (Cloudinary, S3, Vercel Blob, etc.). For best results, use images at least 1200px wide and in landscape orientation for hero images.
+- Any web-accessible image URL (Cloudinary, S3, Vercel Blob, etc.).
+- For best results: use images at least 1200px wide, landscape orientation for heroes.
 
 ## Changing Logo
-If a logo slot exists, you can swap it in the same way as images by updating the URL in `src/config/images.ts`.
+If a logo slot exists, you can change it in the `src/config/images.ts` file similarly to the other images.
 
 ## Changing Colors
-To modify colors, edit the `tailwind.config.js` file. You can change the primary, secondary, and accent colors as needed.
+To modify the Tailwind config, edit the `tailwind.config.js` file. 
 
 ## Changing Fonts
-To swap the Google Font used in the root layout, modify the `layout.tsx` file.
+To swap the Google Font, update the `layout.tsx` file.
 
 ## Updating Text Content
-You can update text content directly in the respective page files located in `src/app/pages`.
+To update text content, edit the respective page files in the `src/app/pages` directory.
 
 ## Requesting Changes
-For any changes or updates, please reach out to Pegrio support.
+For any changes or updates, please contact Pegrio support.
 
 ## Hosting and Maintenance Info
-The website is hosted on Vercel, which provides automatic deployments on code changes.
+The website is hosted on Vercel, which provides automatic deployments and SSL certificates.
 
 ## Contact
-For support, please contact Pegrio at support@pegrio.com.
+For support, reach out to Pegrio at support@pegrio.com.

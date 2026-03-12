@@ -1,7 +1,7 @@
-# Summit Real Estate Website
+# Core Strength CrossFit Website
 
-## Project Description
-This is a modern, clean, and professional website for Summit Real Estate, a full-service real estate brokerage. The website showcases their services, team, and client testimonials while facilitating lead generation through clear calls to action and a responsive design.
+## Description
+This project is a modern, clean, and professional website for Core Strength CrossFit, a premium fitness facility offering personalized training, group classes, and holistic wellness programs. The website is designed to engage local customers and online visitors, promoting lead generation through effective call-to-action elements.
 
 ## Tech Stack
 - Next.js 14+
@@ -16,9 +16,10 @@ This is a modern, clean, and professional website for Summit Real Estate, a full
 ### Install
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/summit-real-estate.git
-   cd summit-real-estate
+   git clone https://github.com/yourusername/core-strength-crossfit.git
+   cd core-strength-crossfit
    ```
+
 2. Install dependencies:
    ```bash
    npm install
@@ -32,36 +33,39 @@ npm run dev
 Open your browser and navigate to `http://localhost:3000`.
 
 ### Build
-To create a production build:
+To build the project for production:
 ```bash
 npm run build
 ```
 
 ### Deploy
-To export the static site:
-```bash
-npm run export
-```
+To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md file.
 
 ## Project Structure Overview
 ```
 /src
   /app
     /api
+      /contact
     /components
     /config
+      images.ts
     /pages
+      index.tsx
+      about.tsx
+      services.tsx
+      contact.tsx
+    /styles
+      globals.css
   /public
-  /styles
   /utils
 ```
 
 ## Image Customization
-To change any image on the site, edit `src/config/images.ts`. Each image slot is documented with comments explaining where it appears on the site.
+To change any image on the site, edit the `src/config/images.ts` file. Each image slot is defined with a `src` URL and `alt` text. The following slots are available:
 
-### Image Slots
 - **hero**: Homepage hero banner
-- **hero-alt**: Alternative hero image for inner pages
+- **hero-alt**: Alternative hero image
 - **about**: About page image
 - **service-1**: First service card image
 - **service-2**: Second service card image
@@ -74,20 +78,13 @@ To change any image on the site, edit `src/config/images.ts`. Each image slot is
 - **testimonial-bg**: Testimonials section background
 
 ## Brand Customization
-### Colors
-To change colors, edit the `tailwind.config.js` file.
-
-### Fonts
-To change fonts, modify the `layout.tsx` file to use different Google Fonts.
-
-### Logo
-To change the logo, update the image URL in `src/config/images.ts`.
+To change colors, modify the `tailwind.config.js` file. For fonts, update the `layout.tsx` file to change the Google Font. The logo can be changed in the `images.ts` file.
 
 ## Environment Variables
-No specific environment variables are required for this project.
+Ensure to set the following environment variables in your `.env` file:
+```
+NEXT_PUBLIC_API_URL=https://api.example.com
+```
 
 ## Deployment Instructions
-To deploy on Vercel:
-1. Push your code to GitHub.
-2. Connect your GitHub repository to Vercel.
-3. Follow the prompts to deploy your site.
+Follow the instructions in the DEPLOYMENT_GUIDE.md file for deploying to Vercel.
