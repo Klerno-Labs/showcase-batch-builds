@@ -1,13 +1,15 @@
-"use client";
-
 ```typescript
-import { useState } from "react";
+import { useState } from 'react';
 
-const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+interface ContactFormProps {
+  onSubmit: (data: { name: string; email: string; message: string }) => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', _gotcha: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,11 +20,11 @@ const ContactForm: React.FC = () => {
     if (formData._gotcha) return; // Bot detected
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
+      const res = await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
       if (res.ok) setIsSuccess(true);
-      else setError("Something went wrong. Please try again.");
+      else setError('Something went wrong. Please try again.');
     } catch {
-      setError("Network error. Please try again.");
+      setError('Network error. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -31,18 +33,16 @@ const ContactForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-      <label htmlFor="phone">Phone</label>
-      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
-      <label htmlFor="message">Message</label>
-      <textarea id="message" name="message" value={formData.message} onChange={handleChange} required />
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Sending..." : "Send Message"}
+      <label htmlFor="name" className="text-sm">Name</label>
+      <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required className="border rounded-md p-2" />
+      <label htmlFor="email" className="text-sm">Email</label>
+      <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required className="border rounded-md p-2" />
+      <label htmlFor="message" className="text-sm">Message</label>
+      <textarea name="message" id="message" value={formData.message} onChange={handleChange} required className="border rounded-md p-2" />
+      <button type="submit" disabled={isSubmitting} className="bg-primary text-white py-2 px-4 rounded-lg">
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
-      {isSuccess && <p>Thank you! We'll be in touch within 24 hours.</p>}
+      {isSuccess && <p className="text-green-500">Thank you! We'll be in touch within 24 hours.</p>}
       {error && <p className="text-red-500">{error}</p>}
     </form>
   );
