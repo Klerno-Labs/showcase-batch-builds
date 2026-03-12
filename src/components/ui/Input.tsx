@@ -2,22 +2,20 @@ import { cn } from "@/lib/cn";
 
 interface InputProps {
   type: string;
-  placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
   className?: string;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, className }) => {
+export const Input: React.FC<InputProps> = ({ type, value, onChange, placeholder, className }) => {
   return (
     <input
       type={type}
-      placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={cn("border rounded-md p-2", className)}
+      placeholder={placeholder}
+      className={cn("border border-muted p-2 rounded-md", className)}
     />
   );
 };
-
-export default Input;

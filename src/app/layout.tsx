@@ -1,30 +1,21 @@
-import { cn } from "@/lib/utils";
+"use client";
+
 import { ReactNode } from "react";
+import { Navbar } from "@/components/ui/Navbar";
+import { Footer } from "@/components/ui/Footer";
+import "@/styles/globals.css";
 
 export const metadata = {
-  title: "Wagmore Dog Grooming",
-  description: "Quality pet grooming services in your area.",
-  openGraph: {
-    title: "Wagmore Dog Grooming",
-    description: "Quality pet grooming services in your area.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-  },
+  title: "Aspen Dental Studio",
+  description: "Your trusted partner in family dentistry.",
 };
 
-const Layout = ({ children }: { children: ReactNode }) => {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={cn("bg-background text-text")}>
-        <header>
-          {/* Navigation component here */}
-        </header>
-        <main>{children}</main>
-        <footer>
-          {/* Footer component here */}
-        </footer>
-      </body>
-    </html>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">{children}</main>
+      <Footer />
+    </div>
   );
-};
-
-export default Layout;
+}

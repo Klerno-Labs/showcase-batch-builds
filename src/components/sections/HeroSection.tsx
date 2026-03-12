@@ -1,24 +1,21 @@
-import { cn } from "@/lib/cn";
 import Image from "next/image";
 
 interface HeroSectionProps {
-  heading: string;
-  subtext: string;
-  cta: { primary: string; secondary: string };
-  image: string;
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  imageUrl: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, cta, image }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle, ctaText, imageUrl }) => {
   return (
-    <section className={cn("flex flex-col items-center justify-center min-h-[80vh] bg-cover")} style={{ backgroundImage: `url(${image})` }}>
-      <h1 className="text-4xl font-bold text-white">{heading}</h1>
-      <p className="text-lg text-white mt-4">{subtext}</p>
-      <div className="mt-8">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">{cta.primary}</button>
-        <button className="bg-transparent border border-white text-white px-4 py-2 rounded-lg ml-4">{cta.secondary}</button>
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }}>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div className="relative z-10 text-white text-center">
+        <h1 className="text-5xl font-bold mb-4">{title}</h1>
+        <p className="text-xl mb-8">{subtitle}</p>
+        <button className="bg-primary text-white px-6 py-3 rounded-lg">{ctaText}</button>
       </div>
     </section>
   );
 };
-
-export default HeroSection;
