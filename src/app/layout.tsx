@@ -1,24 +1,30 @@
-```typescript
-import './globals.css';
-import { metadata } from './metadata';
-import { Inter } from 'next/font/google';
+"use client";
+import { Metadata } from "next";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { siteConfig } from "@/config/site";
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
-
-export const metadataBase = new URL("https://wagmoredoggrooming.com");
+export const metadata: Metadata = {
+  metadataBase: new URL("https://example.com"),
+  title: siteConfig.name,
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [siteConfig.ogImage],
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="description" content={metadata.description} />
-        <link rel="canonical" href={metadata.url} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-      </head>
-      <body className={inter.className}>
+      <body className={cn("bg-white text-gray-900")}>
         {children}
       </body>
     </html>
   );
 }
-```

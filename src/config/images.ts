@@ -1,111 +1,98 @@
-```typescript
-// ── Image Configuration ──────────────────────────────────────────────
-// ✏️  HOW TO CHANGE IMAGES:
-// 1. Find the slot you want to change below (e.g. "hero", "about", "service-1")
-// 2. Replace the "src" URL with your own image URL
-// 3. Update the "alt" text to describe the new image
-// 4. Save — every component on the site updates automatically
-//
-// All components import from this file. This is the ONLY file you need
-// to edit to swap any image on the entire website.
-
 export const images = {
-  // Homepage hero banner — the first image visitors see — REPLACE with a real Unsplash URL matching: "Modern office workspace with natural light"
+  // Homepage hero banner — the first image visitors see — REPLACE with a real Unsplash URL matching: "Professional home renovation project"
   "hero": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Modern office workspace with natural light",
+    alt: "Professional home renovation project",
     width: 1200,
     height: 800,
   },
 
-  // Alternative hero image (used on inner pages or as fallback) — REPLACE with a real Unsplash URL matching: "Professional team collaborating in bright office"
+  // Alternative hero image (used on inner pages or as fallback) — REPLACE with a real Unsplash URL matching: "Modern kitchen renovation with marble countertops"
   "hero-alt": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Professional team collaborating in bright office",
+    alt: "Modern kitchen renovation with marble countertops",
     width: 1200,
     height: 800,
   },
 
-  // About page or About section on homepage — REPLACE with a real Unsplash URL matching: "Business professionals in modern meeting room"
+  // About page or About section on homepage — REPLACE with a real Unsplash URL matching: "Craftsman working on home improvement"
   "about": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Business professionals in modern meeting room",
+    alt: "Craftsman working on home improvement",
     width: 1200,
     height: 800,
   },
 
-  // First service card image — REPLACE with a real Unsplash URL matching: "Creative professionals working together"
+  // First service card image — REPLACE with a real Unsplash URL matching: "Beautiful modern home exterior"
   "service-1": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Creative professionals working together",
+    alt: "Beautiful modern home exterior",
     width: 1200,
     height: 800,
   },
 
-  // Second service card image — REPLACE with a real Unsplash URL matching: "Data analytics dashboard on screen"
+  // Second service card image — REPLACE with a real Unsplash URL matching: "Luxurious modern bathroom renovation"
   "service-2": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Data analytics dashboard on screen",
+    alt: "Luxurious modern bathroom renovation",
     width: 1200,
     height: 800,
   },
 
-  // Third service card image — REPLACE with a real Unsplash URL matching: "Team workshop and brainstorming session"
+  // Third service card image — REPLACE with a real Unsplash URL matching: "Professional tradesperson at work"
   "service-3": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Team workshop and brainstorming session",
+    alt: "Professional tradesperson at work",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 1 — REPLACE with a real Unsplash URL matching: "Professional handshake in business setting"
+  // Gallery image 1 — REPLACE with a real Unsplash URL matching: "Modern home interior with natural light"
   "gallery-1": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Professional handshake in business setting",
+    alt: "Modern home interior with natural light",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Modern conference room with city view"
+  // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Elegant living room with contemporary design"
   "gallery-2": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Modern conference room with city view",
+    alt: "Elegant living room with contemporary design",
     width: 1200,
     height: 800,
   },
 
-  // Team member photo — REPLACE with a real Unsplash URL matching: "Diverse team celebrating success"
-  "team-1": {
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Diverse team celebrating success",
-    width: 1200,
-    height: 800,
-  },
-
-  // Gallery image 3 — REPLACE with a real Unsplash URL matching: "Technology workspace with multiple screens"
+  // Gallery image 3 — REPLACE with a real Unsplash URL matching: "Clean organized workshop tools"
   "gallery-3": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Technology workspace with multiple screens",
+    alt: "Clean organized workshop tools",
     width: 1200,
     height: 800,
   },
 
-  // Call-to-action section background — REPLACE with a real Unsplash URL matching: "Innovation and technology concept"
+  // Call-to-action section background — REPLACE with a real Unsplash URL matching: "Stunning home exterior at golden hour"
   "cta": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Innovation and technology concept",
+    alt: "Stunning home exterior at golden hour",
     width: 1200,
     height: 800,
   },
 
-  // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Professional business environment"
+  // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Modern home with landscaped garden"
   "testimonial-bg": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Professional business environment",
+    alt: "Modern home with landscaped garden",
+    width: 1200,
+    height: 800,
+  },
+
+  // Gallery image 4 — REPLACE with a real Unsplash URL matching: "Contemporary house front entrance"
+  "gallery-4": {
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+    alt: "Contemporary house front entrance",
     width: 1200,
     height: 800,
   },
 } as const;
-
 export type ImageSlot = keyof typeof images;
-```

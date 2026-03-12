@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #F5F5F5;
-  color: #333333;
+:root {
+  --color-primary: 0, 86, 179; /* Trust Blue */
+  --color-secondary: 248, 249, 250; /* Off-White */
+  --color-accent: 255, 153, 0; /* Action Orange */
+  --color-background: 255, 255, 255; /* Pure White */
+  --color-surface: 222, 226, 230; /* Light Gray */
+  --color-text: 33, 37, 41; /* Dark Charcoal */
+  --color-muted: 73, 80, 87; /* Slate Gray */
 }

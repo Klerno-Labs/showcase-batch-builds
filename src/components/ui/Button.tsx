@@ -1,18 +1,17 @@
-"use client";
 import { cn } from "@/lib/cn";
 
 interface ButtonProps {
   label: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary";
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, variant = "primary" }) => {
-  const baseStyles = "py-2 px-4 rounded-lg transition duration-300";
-  const variantStyles = variant === "primary" ? "bg-primary text-white" : "bg-secondary text-white";
-
+const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
   return (
-    <button className={cn(baseStyles, variantStyles)} onClick={onClick}>
+    <button
+      onClick={onClick}
+      className={cn("px-4 py-2 bg-blue-600 text-white rounded-lg", className)}
+    >
       {label}
     </button>
   );

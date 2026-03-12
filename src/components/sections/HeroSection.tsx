@@ -1,34 +1,24 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { cn } from "@/lib/cn";
 import Image from "next/image";
 
 interface HeroSectionProps {
   heading: string;
   subtext: string;
-  ctaPrimary: string;
-  ctaSecondary?: string;
-  imageSrc: string;
+  cta: { primary: string; secondary: string };
+  image: string;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, ctaPrimary, ctaSecondary, imageSrc }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, cta, image }) => {
   return (
-    <motion.section
-      initial={{ opacity: 0, translateY: 20 }}
-      animate={{ opacity: 1, translateY: 0 }}
-      transition={{ duration: 0.6 }}
-      className="relative min-h-[80vh] bg-cover bg-center"
-      style={{ backgroundImage: `url(${imageSrc})` }}
-    >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 text-white p-8">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">{heading}</h1>
-        <p className="mt-4">{subtext}</p>
-        <div className="mt-6">
-          <button className="bg-accent text-white py-2 px-4 rounded">{ctaPrimary}</button>
-          {ctaSecondary && <button className="ml-4 text-primary">{ctaSecondary}</button>}
-        </div>
+    <section className={cn("flex flex-col items-center justify-center min-h-[80vh] bg-cover")} style={{ backgroundImage: `url(${image})` }}>
+      <h1 className="text-4xl font-bold text-white">{heading}</h1>
+      <p className="text-lg text-white mt-4">{subtext}</p>
+      <div className="mt-8">
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">{cta.primary}</button>
+        <button className="bg-transparent border border-white text-white px-4 py-2 rounded-lg ml-4">{cta.secondary}</button>
       </div>
-    </motion.section>
+    </section>
   );
 };
+
+export default HeroSection;
