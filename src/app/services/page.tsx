@@ -1,19 +1,28 @@
-import { images } from '@/config/images';
-import ServicesList from '@/components/sections/ServicesList';
-import CaseStudies from '@/components/sections/CaseStudies';
+"use client";
+
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ServicesOverview } from "@/components/sections/ServicesOverview";
+import { images } from "@/config/images";
+
+export const metadata = {
+  title: "Our Services | Core Strength CrossFit",
+  description: "Explore the services offered at Core Strength CrossFit.",
+  openGraph: {
+    title: "Our Services | Core Strength CrossFit",
+    description: "Explore the services offered at Core Strength CrossFit.",
+    image: images.service-1.src,
+  },
+};
 
 export default function Services() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-8">Our Services</h1>
-      <ServicesList
-        services={[
-          { title: "Residential Sales", description: "Helping you buy or sell your home with ease." },
-          { title: "Commercial Real Estate", description: "Expertise in commercial property transactions." },
-          { title: "Investment Consulting", description: "Guidance on real estate investments for maximum returns." },
-        ]}
+      <HeroSection
+        heading="Our Services"
+        subtext="Tailored fitness solutions to meet your needs."
+        image={images.service-1.src}
       />
-      <CaseStudies />
+      <ServicesOverview />
     </>
   );
 }

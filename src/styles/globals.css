@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-primary: 44, 62, 80; /* #2C3E50 */
-  --color-secondary: 24, 188, 156; /* #18BC9C */
-  --color-accent: 231, 76, 60; /* #E74C3C */
-  --color-background: 236, 240, 241; /* #ECF0F1 */
-  --color-surface: 255, 255, 255; /* #FFFFFF */
-  --color-text: 52, 73, 94; /* #34495E */
-  --color-muted: 189, 195, 199; /* #BDC3C7 */
+html {
+  scroll-behavior: smooth;
 }

@@ -1,22 +1,17 @@
 "use client";
-import React from 'react';
-import Button from '@/components/ui/Button';
 
 interface CTASectionProps {
   heading: string;
   description: string;
-  buttonText: string;
-  buttonLink: string;
+  button: { label: string; href: string };
 }
 
-const CTASection: React.FC<CTASectionProps> = ({ heading, description, buttonText, buttonLink }) => {
+export function CTASection({ heading, description, button }: CTASectionProps) {
   return (
-    <section className="py-16 bg-accent text-white text-center">
-      <h2 className="text-3xl font-bold">{heading}</h2>
+    <section className="py-16 md:py-24 lg:py-32 bg-primary text-white text-center">
+      <h2 className="text-3xl sm:text-4xl font-bold">{heading}</h2>
       <p className="mt-4">{description}</p>
-      <Button text={buttonText} onClick={() => window.location.href = buttonLink} />
+      <a href={button.href} className="mt-6 inline-block bg-white text-primary py-2 px-4 rounded-lg">{button.label}</a>
     </section>
   );
-};
-
-export default CTASection;
+}

@@ -1,18 +1,22 @@
-import { Metadata } from 'next';
-import './globals.css';
-import { cn } from '@/lib/cn';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Summit Real Estate',
-  description: 'Your trusted partner in buying, selling, and investing in real estate.',
-  metadataBase: new URL('https://example.com'),
+import { ReactNode } from "react";
+import { Navbar } from "@/components/ui/Navbar";
+import { Footer } from "@/components/ui/Footer";
+import "@/styles/globals.css";
+
+export const metadata = {
+  title: "Core Strength CrossFit",
+  description: "Premium fitness facility offering personalized training, group classes, and holistic wellness programs.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn('bg-white text-gray-900')}>
-        {children}
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

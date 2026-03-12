@@ -1,22 +1,29 @@
-import { images } from '@/config/images';
-import { siteConfig } from '@/config/site';
-import AboutSection from '@/components/sections/AboutSection';
-import TeamMemberProfiles from '@/components/sections/TeamMemberProfiles';
+"use client";
+
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { images } from "@/config/images";
+import { team } from "@/config/site";
+
+export const metadata = {
+  title: "About Us | Core Strength CrossFit",
+  description: "Learn more about Core Strength CrossFit and our dedicated team.",
+  openGraph: {
+    title: "About Us | Core Strength CrossFit",
+    description: "Learn more about Core Strength CrossFit and our dedicated team.",
+    image: images.hero-alt.src,
+  },
+};
 
 export default function About() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-8">About Us</h1>
-      <AboutSection
-        history="Summit Real Estate was founded with the mission to provide exceptional real estate services to our community. Our team of experienced professionals is dedicated to helping clients navigate the complex world of real estate."
-        values={[
-          "Integrity",
-          "Customer Focus",
-          "Innovation",
-          "Community Engagement"
-        ]}
+      <HeroSection
+        heading="Our Story"
+        subtext="Discover the passion behind Core Strength CrossFit."
+        image={images.hero-alt.src}
       />
-      <TeamMemberProfiles />
+      <AboutSection team={team} />
     </>
   );
 }

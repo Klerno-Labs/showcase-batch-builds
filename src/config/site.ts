@@ -1,21 +1,49 @@
-export const siteConfig = {
-  name: 'Summit Real Estate',
-  description: 'Your trusted partner in buying, selling, and investing in real estate.',
-  phone: '(512) 555-1234',
-  email: 'info@summitrealestate.com',
-  address: '4521 Westheimer Rd, Suite 200, Houston, TX 77027',
-  hours: 'Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed',
-  links: {
-    nav: [
-      { href: '/', label: 'Home' },
-      { href: '/about', label: 'About Us' },
-      { href: '/services', label: 'Services' },
-      { href: '/contact', label: 'Contact' },
-    ],
-    social: [
-      { href: 'https://facebook.com', label: 'Facebook' },
-      { href: 'https://twitter.com', label: 'Twitter' },
-      { href: 'https://instagram.com', label: 'Instagram' },
-    ],
+export const services = [
+  {
+    title: "Personal Training",
+    description: "Tailored one-on-one training sessions to help you achieve your fitness goals.",
+    price: "$75/session",
   },
+  {
+    title: "Group Classes",
+    description: "Join our dynamic group classes for a fun and engaging workout experience.",
+    price: "$20/class",
+  },
+  {
+    title: "Nutrition Coaching",
+    description: "Get personalized nutrition plans based on your fitness goals and lifestyle.",
+    price: "$100/month",
+  },
+];
+
+export const testimonials = [
+  {
+    quote: "Core Strength has transformed my fitness journey. The trainers are incredibly supportive!",
+    name: "Maria L.",
+    role: "Member since 2021",
+  },
+  {
+    quote: "I love the community vibe at Core Strength. Great classes and amazing trainers!",
+    name: "James T.",
+    role: "Group Class Participant",
+  },
+];
+
+export const team = [
+  {
+    name: "Alex R.",
+    title: "Head Trainer",
+    bio: "Certified personal trainer with over 5 years of experience in fitness coaching.",
+  },
+  {
+    name: "Jessica P.",
+    title: "Nutritionist",
+    bio: "Expert in sports nutrition and wellness strategies to enhance performance.",
+  },
+];
+
+export const socialLinks = {
+  facebook: "https://facebook.com/corestrengthcrossfit",
+  instagram: "https://instagram.com/corestrengthcrossfit",
+  twitter: "https://twitter.com/corestrengthcrossfit",
 };
