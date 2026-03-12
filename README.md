@@ -1,23 +1,24 @@
-# Aspen Dental Studio Website
+# Summit Real Estate Website
 
 ## Project Description
-This project is a bespoke, hand-crafted website for Aspen Dental Studio, a modern dental practice focused on providing comprehensive family dentistry with a gentle, patient-first approach. The website aims to generate leads through a user-friendly interface and clear calls to action.
+This is a modern, clean, and professional website for Summit Real Estate, a full-service real estate brokerage. The website showcases their services, team, and client testimonials while facilitating lead generation through clear calls to action and a responsive design.
 
 ## Tech Stack
-- Next.js 14+ (React Framework)
+- Next.js 14+
 - TypeScript
-- Tailwind CSS (Utility-first CSS framework)
-- Framer Motion (Animation library)
+- Tailwind CSS
+- Framer Motion
+- next/image for optimized images
+- next/font for web fonts
 
 ## Getting Started
 
 ### Install
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/aspen-dental-studio.git
-   cd aspen-dental-studio
+   git clone https://github.com/yourusername/summit-real-estate.git
+   cd summit-real-estate
    ```
-
 2. Install dependencies:
    ```bash
    npm install
@@ -31,46 +32,34 @@ npm run dev
 Open your browser and navigate to `http://localhost:3000`.
 
 ### Build
-To create an optimized production build:
+To create a production build:
 ```bash
 npm run build
 ```
 
 ### Deploy
-To deploy the application, follow the instructions in the `DEPLOYMENT_GUIDE.md`.
+To export the static site:
+```bash
+npm run export
+```
 
 ## Project Structure Overview
 ```
 /src
   /app
     /api
-      /contact
     /components
-      /Navbar.tsx
-      /HeroSection.tsx
-      /ServiceCard.tsx
-      /ContactForm.tsx
     /config
-      images.ts
     /pages
-      /about
-        page.tsx
-      /contact
-        page.tsx
-      /services
-        page.tsx
-      page.tsx
-    /styles
-      globals.css
   /public
-    /images
+  /styles
   /utils
-    cn.ts
 ```
 
 ## Image Customization
-To change any image on the site, edit the `src/config/images.ts` file. Here are the image slots and their usage:
+To change any image on the site, edit `src/config/images.ts`. Each image slot is documented with comments explaining where it appears on the site.
 
+### Image Slots
 - **hero**: Homepage hero banner
 - **hero-alt**: Alternative hero image for inner pages
 - **about**: About page image
@@ -85,10 +74,20 @@ To change any image on the site, edit the `src/config/images.ts` file. Here are 
 - **testimonial-bg**: Testimonials section background
 
 ## Brand Customization
-To change colors, modify the `tailwind.config.js` file. For fonts, update the `layout.tsx` file. To change the logo, update the image URL in `src/config/images.ts`.
+### Colors
+To change colors, edit the `tailwind.config.js` file.
 
-## Environment Variables Needed
-- `NEXT_PUBLIC_API_URL`: The API endpoint for form submissions.
+### Fonts
+To change fonts, modify the `layout.tsx` file to use different Google Fonts.
+
+### Logo
+To change the logo, update the image URL in `src/config/images.ts`.
+
+## Environment Variables
+No specific environment variables are required for this project.
 
 ## Deployment Instructions
-Follow the instructions in the `DEPLOYMENT_GUIDE.md` for deploying the application to Vercel.
+To deploy on Vercel:
+1. Push your code to GitHub.
+2. Connect your GitHub repository to Vercel.
+3. Follow the prompts to deploy your site.

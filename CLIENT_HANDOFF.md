@@ -1,52 +1,51 @@
-# Aspen Dental Studio Website Handoff
+# Summit Real Estate Website Handoff
 
-## Overview
-We have built a modern, responsive website for Aspen Dental Studio, designed to showcase your services and values while generating leads. Below is a page-by-page overview of the site.
+## Overview of What Was Built
+We have created a modern and professional website for Summit Real Estate, which includes the following pages:
 
 ### Home Page
-- Features a hero section with a compelling value proposition and a sticky "Book Now" button.
-- Includes an overview of services and a testimonials section to build trust.
+- Features a full-screen hero section with a clear call to action.
+- Showcases featured properties, services overview, and client testimonials.
 
 ### About Page
-- Introduces the practice's mission and values.
-- Showcases the team with individual bios to connect with potential patients.
+- Contains a hero section with the company history and team member profiles.
 
 ### Services Page
-- Provides an overview of service categories with detailed descriptions.
-- Includes a before/after gallery for cosmetic services to highlight results.
+- Lists services in an accordion format and includes case studies.
 
 ### Contact Page
-- Contains a contact form with real-time validation.
-- Displays the location on a Google Map and includes office hours.
+- Includes a contact form and an interactive map for easy navigation.
 
 ## Changing Images
-All images are controlled from ONE file: `src/config/images.ts`. Each image slot has a comment explaining where it appears on the site. To swap an image:
+All images are controlled from ONE file: `src/config/images.ts`. Each image slot has a comment explaining where it appears on the site.
+
+### To Swap an Image:
 1. Open `src/config/images.ts`.
-2. Replace the `src` URL with your desired image URL.
-3. Update the `alt` text to describe the new image.
-4. Save the file — changes will appear on every page that uses that image.
+2. Find the image slot you want to change (e.g., `hero`).
+3. Replace the `src` URL with your new image URL.
+4. Update the `alt` text to describe the new image.
+5. Save the file — the change will appear on every page that uses that image.
 
 ### Supported Formats
-- Any web-accessible image URL (Cloudinary, S3, Vercel Blob, etc.).
-- For best results, use images at least 1200px wide and in landscape orientation for hero images.
+You can use any web-accessible image URL (Cloudinary, S3, Vercel Blob, etc.). For best results, use images at least 1200px wide and in landscape orientation for hero images.
 
 ## Changing Logo
-If a logo slot exists, follow the same steps as above to update the logo image URL in `src/config/images.ts`.
+If a logo slot exists, you can swap it in the same way as images by updating the URL in `src/config/images.ts`.
 
 ## Changing Colors
 To modify colors, edit the `tailwind.config.js` file. You can change the primary, secondary, and accent colors as needed.
 
 ## Changing Fonts
-To swap the Google Font used in the root layout, update the `layout.tsx` file.
+To swap the Google Font used in the root layout, modify the `layout.tsx` file.
 
 ## Updating Text Content
-To update text content, edit the respective page files in the `src/app/pages` directory.
+You can update text content directly in the respective page files located in `src/app/pages`.
 
 ## Requesting Changes
-For any changes or updates, please contact Pegrio support.
+For any changes or updates, please reach out to Pegrio support.
 
-## Hosting and Maintenance
-The website is hosted on Vercel, which provides automatic deployments and SSL certificates.
+## Hosting and Maintenance Info
+The website is hosted on Vercel, which provides automatic deployments on code changes.
 
 ## Contact
-For support, reach out to Pegrio at support@pegrio.com.
+For support, please contact Pegrio at support@pegrio.com.
