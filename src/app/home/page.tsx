@@ -1,35 +1,28 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { CTABanner } from "@/components/sections/CTABanner";
-import { images } from "@/config/images";
+import { Metadata } from "next";
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesTeaser from "@/components/sections/ServicesTeaser";
+import TeamHighlight from "@/components/sections/TeamHighlight";
+import Testimonials from "@/components/sections/Testimonials";
+import ConversionCTA from "@/components/sections/ConversionCTA";
 
-export const metadata = {
-  title: "Home | Summit Electric",
-  description: "Welcome to Summit Electric, your trusted local service provider for home improvement solutions.",
+export const metadata: Metadata = {
+  title: "Home | Luxe Cuts Studio",
+  description: "Experience the art of hair at Luxe Cuts Studio. Upscale beauty services in a luxurious setting.",
   openGraph: {
-    title: "Home | Summit Electric",
-    description: "Welcome to Summit Electric, your trusted local service provider for home improvement solutions.",
-    image: images.hero.src,
+    title: "Home | Luxe Cuts Studio",
+    description: "Experience the art of hair at Luxe Cuts Studio. Upscale beauty services in a luxurious setting.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
   },
 };
 
 export default function HomePage() {
   return (
-    <div>
-      <HeroSection
-        heading="Quality Home Improvement Solutions"
-        subtext="Delivering reliable and professional services to enhance your home."
-        cta={{ primary: "Schedule Service", secondary: "Call Now" }}
-        image={images.hero.src}
-      />
-      <ServicesGrid />
-      <TestimonialsSection />
-      <CTABanner
-        heading="Ready to Transform Your Home?"
-        description="Contact us today for a free consultation."
-        buttonText="Get a Quote"
-      />
-    </div>
+    <>
+      <HeroSection />
+      <ServicesTeaser />
+      <TeamHighlight />
+      <Testimonials />
+      <ConversionCTA />
+    </>
   );
 }

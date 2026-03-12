@@ -1,33 +1,22 @@
-import ServicesList from "@/components/sections/ServicesList";
-import CaseStudies from "@/components/sections/CaseStudies";
-import { images } from "@/config/images";
+import { Metadata } from "next";
+import ServicesAccordion from "@/components/sections/ServicesAccordion";
+import AddOnsSection from "@/components/sections/AddOnsSection";
 
-export const metadata = {
-  title: "Our Services | Summit Real Estate",
-  description: "Explore the services offered by Summit Real Estate.",
+export const metadata: Metadata = {
+  title: "Services | Luxe Cuts Studio",
+  description: "Explore our range of upscale beauty services and pricing.",
   openGraph: {
-    title: "Our Services | Summit Real Estate",
-    description: "Explore the services offered by Summit Real Estate.",
-    image: images.hero.src,
+    title: "Services | Luxe Cuts Studio",
+    description: "Explore our range of upscale beauty services and pricing.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
   },
 };
 
-export default function Services() {
+export default function ServicesPage() {
   return (
     <>
-      <ServicesList
-        services={[
-          { title: "Residential Sales", description: "Helping you buy or sell your home." },
-          { title: "Commercial Real Estate", description: "Expert guidance for commercial property transactions." },
-          { title: "Investment Properties", description: "Maximize your investment potential with our services." },
-        ]}
-      />
-      <CaseStudies
-        studies={[
-          { title: "Luxury Home Sale", description: "Successfully sold a luxury home in the heart of the city.", link: "#" },
-          { title: "Commercial Space Lease", description: "Assisted a client in leasing a prime commercial space.", link: "#" },
-        ]}
-      />
+      <ServicesAccordion />
+      <AddOnsSection />
     </>
   );
 }

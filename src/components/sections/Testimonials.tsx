@@ -1,40 +1,25 @@
-"use client";
-
-import { cn } from "@/lib/cn";
-
 const testimonials = [
-  {
-    quote: "This agency helped me find my dream home! The team was incredibly supportive throughout the entire process.",
-    name: "Maria L.",
-    role: "Client",
-  },
-  {
-    quote: "Professional and attentive service throughout the buying process. I couldn't have asked for a better experience!",
-    name: "James T.",
-    role: "Client",
-  },
-  {
-    quote: "Summit Real Estate made selling my home a breeze. Their expertise and guidance were invaluable.",
-    name: "Sarah K.",
-    role: "Client",
-  },
+  { name: "Maria L.", text: "Sophia gave me the best haircut I've ever had! The atmosphere is so welcoming." },
+  { name: "James T.", text: "The team is incredibly talented and professional. I always leave feeling fabulous." },
+  { name: "Emma W.", text: "Luxe Cuts Studio is my go-to for all my hair needs. Highly recommend!" },
 ];
 
-export default function Testimonials() {
+const Testimonials = () => {
   return (
-    <section className={cn("py-16 md:py-24 lg:py-32 bg-white")}>
-      <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")}>
-        <h2 className={cn("text-3xl sm:text-4xl font-bold text-center mb-8")}>What Our Clients Say</h2>
-        <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6")}>
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center mb-6">What Our Clients Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className={cn("bg-gray-100 shadow-md rounded-lg p-6")}>
-              <p className={cn("text-lg italic")}>“{testimonial.quote}”</p>
-              <p className={cn("mt-4 font-semibold")}>{testimonial.name}</p>
-              <p className={cn("text-gray-600")}>{testimonial.role}</p>
+            <div key={testimonial.name} className="bg-white p-6 rounded-lg shadow-md">
+              <p className="text-gray-600 italic">"{testimonial.text}"</p>
+              <p className="text-gray-900 font-semibold mt-4">{testimonial.name}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;

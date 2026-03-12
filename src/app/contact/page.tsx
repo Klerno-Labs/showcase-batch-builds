@@ -1,26 +1,22 @@
-"use client";
+import { Metadata } from "next";
+import ContactForm from "@/components/ui/ContactForm";
+import ContactInformation from "@/components/ui/ContactInformation";
 
-import ContactForm from "@/components/forms/ContactForm";
-import { images } from "@/config/images";
-
-export const metadata = {
-  title: "Contact Us | Summit Real Estate",
-  description: "Get in touch with Summit Real Estate for any inquiries.",
+export const metadata: Metadata = {
+  title: "Contact Us | Luxe Cuts Studio",
+  description: "Get in touch with Luxe Cuts Studio for appointments and inquiries.",
   openGraph: {
-    title: "Contact Us | Summit Real Estate",
-    description: "Get in touch with Summit Real Estate for any inquiries.",
-    image: images.hero.src,
+    title: "Contact Us | Luxe Cuts Studio",
+    description: "Get in touch with Luxe Cuts Studio for appointments and inquiries.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
   },
 };
 
-export default function Contact() {
-  const handleSubmit = async (data: { name: string; email: string; message: string }) => {
-    // Implement your form submission logic here
-  };
-
+export default function ContactPage() {
   return (
     <>
-      <ContactForm onSubmit={handleSubmit} />
+      <ContactInformation />
+      <ContactForm />
     </>
   );
 }

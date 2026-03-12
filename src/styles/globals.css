@@ -5,3 +5,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: #C5A086;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
