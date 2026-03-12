@@ -1,50 +1,32 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServiceCard } from "@/components/sections/ServiceCard";
-import { Testimonials } from "@/components/sections/Testimonials";
+```typescript
 import { images } from "@/config/images";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Home | Aspen Dental Studio",
-  description: "Welcome to Aspen Dental Studio, where your smile is our priority.",
+export const metadata: Metadata = {
+  title: "Summit Electric - Trusted Home Improvement Services",
+  description: "Summit Electric provides quality home improvement solutions with a focus on reliability and professionalism.",
   openGraph: {
-    title: "Home | Aspen Dental Studio",
-    description: "Welcome to Aspen Dental Studio, where your smile is our priority.",
-    image: images.hero.src,
+    title: "Summit Electric - Trusted Home Improvement Services",
+    description: "Summit Electric provides quality home improvement solutions with a focus on reliability and professionalism.",
+    images: [images.hero.src],
   },
 };
 
 export default function Home() {
   return (
-    <>
-      <HeroSection
-        title="Gentle Family Dentistry"
-        subtitle="Your smile is our top priority."
-        ctaText="Book Now"
-        imageUrl={images.hero.src}
-      />
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ServiceCard
-              title="General Dentistry"
-              description="Comprehensive dental care for the whole family."
-              imageUrl={images.service-1.src}
-            />
-            <ServiceCard
-              title="Cosmetic Dentistry"
-              description="Enhance your smile with our cosmetic procedures."
-              imageUrl={images.service-2.src}
-            />
-            <ServiceCard
-              title="Emergency Dentistry"
-              description="Immediate care for dental emergencies."
-              imageUrl={images.service-3.src}
-            />
+    <main>
+      <section className="min-h-[80vh] flex items-center justify-between bg-cover" style={{ backgroundImage: `url(${images.hero.src})` }}>
+        <div className="max-w-lg p-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">Quality Home Improvement Services</h1>
+          <p className="mt-4 text-xl sm:text-2xl font-semibold text-white">Reliable solutions for your home, delivered with professionalism.</p>
+          <div className="mt-8">
+            <a href="#contact" className="bg-primary text-white py-3 px-6 rounded-lg">Schedule Service</a>
+            <a href="tel:(512) 555-1234" className="ml-4 border border-white text-white py-3 px-6 rounded-lg">Call Now</a>
           </div>
         </div>
       </section>
-      <Testimonials />
-    </>
+      {/* Additional sections go here */}
+    </main>
   );
 }
+```
