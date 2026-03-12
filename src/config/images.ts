@@ -1,3 +1,4 @@
+```typescript
 // ── Image Configuration ──────────────────────────────────────────────
 // ✏️  HOW TO CHANGE IMAGES:
 // 1. Find the slot you want to change below (e.g. "hero", "about", "service-1")
@@ -107,3 +108,4 @@ export const images = {
 } as const;
 
 export type ImageSlot = keyof typeof images;
+```

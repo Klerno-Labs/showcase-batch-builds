@@ -1,8 +1,22 @@
-import { NextResponse } from "next/server";
+```typescript
+import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   const data = await request.json();
-  // Here you would typically send the data to your email service or database
-  console.log(data); // For now, just log it
-  return NextResponse.json({ message: "Success" });
+  const { name, email, message, _gotcha } = data;
+
+  // Honeypot check
+  if (_gotcha) {
+    return NextResponse.json({ error: 'Bot detected' }, { status: 400 });
+  }
+
+  // Validate input
+  if (!name || !email || !message) {
+    return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+  }
+
+  // Here you would typically send the email or save to a database
+  // For now, we will just return a success response
+  return NextResponse.json({ success: true });
 }
+```

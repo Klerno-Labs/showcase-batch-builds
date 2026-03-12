@@ -1,23 +1,24 @@
-"use client";
+```typescript
+import './globals.css';
+import { metadata } from './metadata';
+import { Inter } from 'next/font/google';
 
-import { ReactNode } from "react";
-import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
-import "@/styles/globals.css";
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
-export const metadata = {
-  title: "Wagmore Dog Grooming",
-  description: "Loving pet care services including grooming, boarding, daycare, and veterinary wellness.",
-};
+export const metadataBase = new URL("https://wagmoredoggrooming.com");
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-background text-text">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <head>
+        <meta name="description" content={metadata.description} />
+        <link rel="canonical" href={metadata.url} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+      </head>
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   );
 }
+```

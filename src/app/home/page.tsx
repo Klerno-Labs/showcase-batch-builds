@@ -1,36 +1,29 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { CTASection } from "@/components/sections/CTASection";
-import { images } from "@/config/images";
+```typescript
+import HeroSection from '@/components/HeroSection';
+import { images } from '@/config/images';
+import { metadata } from './metadata';
 
 export const metadata = {
-  title: "Home | Wagmore Dog Grooming",
-  description: "Welcome to Wagmore Dog Grooming, your local pet care experts.",
+  title: 'Wagmore Dog Grooming | Quality Pet Care Services',
+  description: 'Wagmore Dog Grooming offers grooming, boarding, daycare, and veterinary wellness services.',
   openGraph: {
-    title: "Home | Wagmore Dog Grooming",
-    description: "Welcome to Wagmore Dog Grooming, your local pet care experts.",
+    title: 'Wagmore Dog Grooming | Quality Pet Care Services',
+    description: 'Wagmore Dog Grooming offers grooming, boarding, daycare, and veterinary wellness services.',
     image: images.hero.src,
   },
 };
 
 export default function HomePage() {
   return (
-    <>
+    <main>
       <HeroSection
-        heading="Your Pet Deserves the Best"
-        subtext="Providing loving care for your furry friends."
+        heading="Welcome to Wagmore Dog Grooming"
+        subtext="Your pet's home away from home."
         ctaPrimary="Book Now"
         ctaSecondary="Learn More"
         imageSrc={images.hero.src}
       />
-      <ServicesSection />
-      <Testimonials />
-      <CTASection
-        heading="Join Our Family"
-        description="Sign up for our newsletter to stay updated."
-        buttonLabel="Subscribe"
-      />
-    </>
+    </main>
   );
 }
+```
