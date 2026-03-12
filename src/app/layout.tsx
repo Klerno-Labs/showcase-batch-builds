@@ -1,24 +1,23 @@
-import { Metadata } from 'next';
-import { images } from "@/config/images";
+```typescript
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Core Strength CrossFit",
-  description: "Premium fitness facility offering personalized training, group classes, and holistic wellness programs.",
-  openGraph: {
-    title: "Core Strength CrossFit",
-    description: "Premium fitness facility offering personalized training, group classes, and holistic wellness programs.",
-    images: [images["hero"].src],
-  },
-  canonical: "https://example.com",
+  metadataBase: new URL("https://example.com"),
+  title: "General Business",
+  description: "Your partner in business success.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-      </head>
-      <body>{children}</body>
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   );
 }
+```

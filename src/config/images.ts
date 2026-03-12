@@ -108,5 +108,4 @@ export const images = {
 } as const;
 
 export type ImageSlot = keyof typeof images;
-
 ```
