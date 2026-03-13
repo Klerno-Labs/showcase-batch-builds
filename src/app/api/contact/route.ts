@@ -2,6 +2,15 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const data = await request.json();
-  // Here you would typically handle the data, e.g., send an email or save to a database
-  return NextResponse.json({ message: "Success" });
+  const { name, email, phone, message, _gotcha } = data;
+
+  // Honeypot check
+  if (_gotcha) {
+    return NextResponse.json({ message: "Spam detected." }, { status: 400 });
+  }
+
+  // Simulate email sending
+  console.log("Contact Form Submission:", { name, email, phone, message });
+
+  return NextResponse.json({ message: "Thank you! We'll be in touch within 24 hours." }, { status: 200 });
 }
