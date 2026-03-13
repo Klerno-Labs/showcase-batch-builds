@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/config/images";
 import { CTASection } from "@/components/sections/cta-section";
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 
 const values = [
   { icon: Shield, title: "Integrity First", desc: "We adhere to the highest ethical standards, providing honest assessments even when the truth is difficult." },
-  { icon: Users, title: "Client-Centric", desc: "Your goals are our priority. We listen, understand, and tailor our strategy to your specific needs." },
+  { icon: Users, title: "Client-Centric", desc: "Your goals are our. We listen, understand, and tailor our strategy to your specific needs." },
   { icon: Target, title: "Aggressive Advocacy", desc: "We fight tirelessly for your rights, whether in the boardroom or the courtroom." },
 ];
 
@@ -31,7 +30,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="prose prose-lg mx-auto text-text-muted">
             <p className="first-letter:text-5xl first-letter:font-heading first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-3">
-              ummit Legal Advisors began with a simple belief: that everyone deserves access to top-tier legal representation. Over the last three decades, we have grown from a small boutique firm into one of Houston&apos;s most respected names in business and personal litigation.
+              ummit Legal Advisors began with a simple belief: that everyone deserves access to top-tier legal representation. Over the last three decades, we have grown from a small boutique firm into one of Houston's most respected names in business and personal litigation.
             </p>
             <p>
               We have weathered economic shifts and changes in the legal landscape, but our core mission has never wavered. We take pride in our deep roots in the community and our long-standing relationships with local courts and businesses.
@@ -77,7 +76,7 @@ export default function AboutPage() {
             {[1, 2, 3].map((i) => (
               <div key={i} className="group">
                 <div className="overflow-hidden rounded-xl mb-4">
-                  <Image
+                  <img
                     src={images["team-1"].src}
                     alt="Attorney"
                     width={400}

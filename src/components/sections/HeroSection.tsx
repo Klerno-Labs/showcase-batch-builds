@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { images } from "@/config/images";
 
 interface HeroSectionProps {
@@ -13,12 +12,11 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, ctaPrimary, ctaSecondary }) => {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gray-50">
-      <Image
+      <img
         src={images["hero"].src}
         alt={images["hero"].alt}
         width={images["hero"].width}
         height={images["hero"].height}
-        priority={true}
         className="absolute inset-0 object-cover w-full h-full"
       />
       <div className="relative z-10 text-center text-white">

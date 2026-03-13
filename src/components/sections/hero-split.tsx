@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/config/images";
 import { Button } from "@/components/ui/button";
@@ -61,12 +58,11 @@ export function HeroSplit() {
           className="relative lg:h-[600px] w-full"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent z-10 lg:hidden" />
-          <Image
+          <img
             src={images["hero"].src}
             alt={images["hero"].alt}
             width={images["hero"].width}
             height={images["hero"].height}
-            priority
             className="object-cover w-full h-full rounded-2xl shadow-2xl"
           />
         </motion.div>

@@ -1,5 +1,4 @@
-
-import Image from "next/image";
+```typescript
 import { images } from "@/config/images";
 
 interface HeroSectionProps {
@@ -16,15 +15,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, ctaText }) 
         <p className="text-xl sm:text-2xl font-semibold">{subtext}</p>
         <button className="mt-4 bg-primary text-white py-2 px-4 rounded-lg">{ctaText}</button>
       </div>
-      <Image
+      <img
         src={images.hero.src}
         alt={images.hero.alt}
         width={images.hero.width}
         height={images.hero.height}
-        priority={true}
       />
     </section>
   );
 };
 
 export default HeroSection;
+```

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { HeroSplit } from "@/components/sections/hero-split";
 import { CTASection } from "@/components/sections/cta-section";
 import { images } from "@/config/images";
-import Image from "next/image";
 import { Scale, UserCheck, FileText, Award } from "lucide-react";
 import Link from "next/link";
 
@@ -74,7 +73,7 @@ export default function Home() {
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">Proven Results</h2>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                We don&apos;t just practice law; we deliver justice. Our track record speaks for itself, with millions recovered for our clients in high-stakes litigation.
+                We don't just practice law; we deliver justice. Our track record speaks for itself, with millions recovered for our clients in high-stakes litigation.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3">
@@ -106,7 +105,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <Image
+              <img
                 src={images["about"].src}
                 alt={images["about"].alt}
                 width={images["about"].width}
