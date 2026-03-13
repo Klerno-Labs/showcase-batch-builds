@@ -1,69 +1,84 @@
-import { Quote } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Star } from "lucide-react";
+import { images } from "@/config/images";
 
 const testimonials = [
   {
     name: "Maria L.",
-    role: "CEO, Nexus Logistics",
-    content: "Pegrio didn't just give us a plan; they worked alongside us to execute it. Our operational efficiency increased by 40% within six months.",
-    rating: 5
+    role: "COO, Nexus Logistics",
+    content: "Pegrio didn't just give us a plan; they gave us a new culture. Our operational efficiency has increased by 40% in six months.",
   },
   {
     name: "James T.",
-    role: "Director, FinServe Corp",
-    content: "The depth of market insight provided by the Pegrio team was unparalleled. They identified opportunities we had completely overlooked.",
-    rating: 5
+    role: "Founder, SolarTech Startups",
+    content: "Their financial modeling saved us from a costly pivot. The team at Pegrio is sharp, honest, and incredibly dedicated to our success.",
   },
   {
-    name: "Sarah J.",
-    role: "Founder, GreenTech Solutions",
-    content: "Professional, responsive, and incredibly knowledgeable. They guided us through a complex merger with absolute precision.",
-    rating: 5
-  }
+    name: "Sarah B.",
+    role: "Director, GreenWave Energy",
+    content: "We've worked with many consultants, but Pegrio stands out for their practical, no-nonsense approach to complex market entry strategies.",
+  },
 ];
 
 export default function Testimonials() {
   return (
     <section id="testimonials" className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -z-10 skew-x-12 origin-top transform translate-x-20" />
+      {/* Background Decoration */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-gray-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-4">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Our success is measured by the success of our clients. Here is what business leaders are saying about their partnership with Pegrio.
+          <p className="text-lg text-gray-600">
+            Our reputation is built on measurable results and long-term partnerships.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white p-8 rounded-xl border border-gray-100 shadow-card hover:shadow-lg transition-shadow duration-300 relative"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 relative"
             >
-              <div className="absolute top-6 right-6 text-primary/10">
-                <Quote className="w-8 h-8" />
-              </div>
-              
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-primary fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-current" />
                 ))}
               </div>
-
-              <p className="text-gray-600 leading-relaxed mb-6 italic">
-                "{testimonial.content}"
-              </p>
-
-              <div>
-                <p className="font-bold text-gray-900">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
+              <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
+                &quot;{testimonial.content}&quot;
+              </blockquote>
+              <div className="flex items-center">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
+                  {/* Using a generic avatar logic or one of the images if specific ones existed, using team-1 for variation */}
+                  <Image
+                    src={index === 0 ? images["team-1"].src : images["gallery-1"].src}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.role}</div>
+                </div>
               </div>
-            </div>
+              {/* Decorative Quote Mark */}
+              <div className="absolute top-4 right-6 text-6xl text-gray-100 font-serif leading-none">
+                &ldquo;
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

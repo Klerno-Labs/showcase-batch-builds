@@ -1,30 +1,45 @@
-import { images } from "@/config/images";
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, BarChart, Users, Lightbulb } from "lucide-react";
+import { images } from "@/config/images";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
-    icon: <BarChart className="w-8 h-8" />,
     title: "Strategic Consulting",
-    description: "Comprehensive market analysis and long-term planning to position your business for sustainable growth in competitive landscapes.",
+    description: "Data-driven roadmaps to identify growth opportunities and operational bottlenecks. We help you see the forest and the trees.",
     image: "service-1",
-    link: "#contact"
+    link: "#contact",
   },
   {
-    icon: <Lightbulb className="w-8 h-8" />,
-    title: "Digital Transformation",
-    description: "Modernize your operations with cutting-edge technology integration, process automation, and workflow optimization.",
+    title: "Financial Planning",
+    description: "Rigorous financial modeling and forecasting to ensure your resources are allocated for maximum ROI and long-term stability.",
     image: "service-2",
-    link: "#contact"
+    link: "#contact",
   },
   {
-    icon: <Users className="w-8 h-8" />,
-    title: "Organizational Change",
-    description: "Expert guidance on mergers, acquisitions, and cultural alignment to ensure smooth transitions and team cohesion.",
+    title: "Digital Transformation",
+    description: "Modernize your workflow with cutting-edge technology integration that empowers your team and delights your customers.",
     image: "service-3",
-    link: "#contact"
-  }
+    link: "#contact",
+  },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
 export default function Services() {
   return (
@@ -32,50 +47,52 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-4">
-            Solutions Tailored to Your Ambitions
+            Comprehensive Solutions
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            We offer a full suite of consulting services designed to address the unique challenges of modern enterprises. From strategy to execution, we are your partners in growth.
+          <p className="text-lg text-gray-600">
+            From startups to established enterprises, we tailor our approach to fit your specific industry challenges and goals.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col h-full"
+              variants={itemVariants}
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={images[service.image as keyof typeof images].src}
                   alt={images[service.image as keyof typeof images].alt}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-primary/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              
               <div className="p-8 flex-1 flex flex-col">
-                <div className="text-primary mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-6 flex-1">
+                <p className="text-gray-600 mb-6 flex-1 leading-relaxed">
                   {service.description}
                 </p>
-                <a 
+                <a
                   href={service.link}
-                  className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all"
+                  className="inline-flex items-center font-semibold text-blue-600 hover:text-blue-800 transition-colors"
                 >
-                  Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                  Learn More <span className="ml-1 transition-transform group-hover:translate-x-1">&rarr;</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

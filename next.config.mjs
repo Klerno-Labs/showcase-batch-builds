@@ -5,10 +5,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
       },
     ],
   },
-  output: 'export',
+  // REMOVED output: 'export' to allow API routes to function correctly
 };
 
 export default nextConfig;
