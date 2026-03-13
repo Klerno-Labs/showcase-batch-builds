@@ -1,5 +1,3 @@
-"use client";
-
 import { images } from "@/config/images";
 import { cn } from "@/lib/cn";
 import { siteConfig } from "@/config/site";
