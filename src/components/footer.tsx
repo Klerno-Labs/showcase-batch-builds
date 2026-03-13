@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowUp, Twitter, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Footer() {
@@ -12,109 +10,142 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* About */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">{siteConfig.name}</h3>
+            <h3 className="text-xl font-bold tracking-tight">{siteConfig.name}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Elevating businesses through strategic innovation, operational excellence, and data-driven growth. We build partnerships that last.
+              {siteConfig.description}
             </p>
+            <div className="flex space-x-4 pt-2">
+              <a
+                href={siteConfig.links.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Twitter page"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our LinkedIn page"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href={siteConfig.links.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Facebook page"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href={siteConfig.links.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {siteConfig.navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="#services" className="hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Contact Us
-            </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3 text-sm text-gray-400">
-                <MapPin className="h-5 w-5 shrink-0 mt-0.5" />
-                <span>{siteConfig.links.address}</span>
+            <h4 className="font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 h-5 w-5 flex-shrink-0 text-blue-500">📍</span>
+                {siteConfig.contact.address}
               </li>
-              <li className="flex items-center space-x-3 text-sm text-gray-400">
-                <Phone className="h-5 w-5 shrink-0" />
-                <a href={`tel:${siteConfig.links.phone}`} className="hover:text-white">
-                  {siteConfig.links.phone}
+              <li className="flex items-center gap-3">
+                <span className="h-5 w-5 flex-shrink-0 text-blue-500">📞</span>
+                <a
+                  href={`tel:${siteConfig.contact.phone}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.contact.phone}
                 </a>
               </li>
-              <li className="flex items-center space-x-3 text-sm text-gray-400">
-                <Mail className="h-5 w-5 shrink-0" />
-                <a href={`mailto:${siteConfig.links.email}`} className="hover:text-white">
-                  {siteConfig.links.email}
+              <li className="flex items-center gap-3">
+                <span className="h-5 w-5 flex-shrink-0 text-blue-500">✉️</span>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.contact.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 h-5 w-5 flex-shrink-0 text-blue-500">🕒</span>
+                {siteConfig.contact.hours}
               </li>
             </ul>
           </div>
 
-          {/* Social & Legal */}
+          {/* Legal */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Connect
-            </h4>
-            <div className="flex space-x-4 mb-8">
-              {siteConfig.links.socials.map((social) => {
-                const Icon =
-                  social.icon === "twitter"
-                    ? Twitter
-                    : social.icon === "linkedin"
-                    ? Linkedin
-                    : Instagram;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit our ${social.name} page`}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
-            </div>
-            <div className="space-y-2 text-sm text-gray-400">
-              <Link href="/privacy" className="hover:text-white block">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-white block">
-                Terms of Service
-              </Link>
-            </div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li>
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500 text-center md:text-left">
+        <div className="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
             aria-label="Back to top"
-            className="mt-4 md:mt-0 flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
           >
-            <span>Back to top</span>
-            <ArrowUp className="h-4 w-4" />
+            Back to top <ArrowUp className="h-4 w-4" />
           </button>
         </div>
       </div>

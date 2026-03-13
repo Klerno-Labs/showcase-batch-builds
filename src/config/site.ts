@@ -1,25 +1,22 @@
-import { images } from "./images";
-
 export const siteConfig = {
-  name: "Summit Strategy Group",
-  description: "Elevating businesses through strategic innovation, operational excellence, and data-driven growth.",
-  url: "https://summitstrategygroup.com",
-  ogImage: images.hero.src,
+  name: "Pegrio",
+  description: "Strategic business solutions for modern enterprises. We drive growth through innovation, data analytics, and digital transformation.",
+  url: "https://pegrio.com",
   links: {
-    email: "info@summitstrategygroup.com",
-    phone: "(512) 555-0123",
-    address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
-    socials: [
-      { name: "Twitter", url: "https://twitter.com", icon: "twitter" },
-      { name: "LinkedIn", url: "https://linkedin.com", icon: "linkedin" },
-      { name: "Instagram", url: "https://instagram.com", icon: "instagram" },
-    ],
+    twitter: "https://twitter.com",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
   },
-  navItems: [
+  contact: {
+    email: "info@pegrio.com",
+    phone: "(713) 555-0198",
+    address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
+    hours: "Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed",
+  },
+  nav: [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
-    { title: "Services", href: "/services" },
-    { title: "FAQ", href: "/faq" },
+    { title: "Services", href: "#services" },
     { title: "Contact", href: "/contact" },
   ],
 };

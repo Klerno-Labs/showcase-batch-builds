@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,6 +8,9 @@ const nextConfig = {
       },
     ],
   },
+  // Enable static export for maximum portability if needed, 
+  // though API routes prevent pure static export without separate backend.
+  // For this prompt, we keep standard Next.js serverless mode to support the API route.
 };
 
 export default nextConfig;
