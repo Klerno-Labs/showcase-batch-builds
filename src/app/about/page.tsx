@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="prose prose-lg mx-auto text-text-muted">
             <p className="first-letter:text-5xl first-letter:font-heading first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-3">
-              ummit Legal Advisors began with a simple belief: that everyone deserves access to top-tier legal representation. Over the last three decades, we have grown from a small boutique firm into one of Houston's most respected names in business and personal litigation.
+              ummit Legal Advisors began with a simple belief: that everyone deserves access to top-tier legal representation. Over the last three decades, we have grown from a small boutique firm into one of Houston&apos;s most respected names in business and personal litigation.
             </p>
             <p>
               We have weathered economic shifts and changes in the legal landscape, but our core mission has never wavered. We take pride in our deep roots in the community and our long-standing relationships with local courts and businesses.

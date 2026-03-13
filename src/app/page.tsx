@@ -73,7 +73,7 @@ export default function Home() {
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">Proven Results</h2>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                We don't just practice law; we deliver justice. Our track record speaks for itself, with millions recovered for our clients in high-stakes litigation.
+                We don&apos;t just practice law; we deliver justice. Our track record speaks for itself, with millions recovered for our clients in high-stakes litigation.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3">
