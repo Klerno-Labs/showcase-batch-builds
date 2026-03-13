@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://summitridge.com/sitemap.xml
+Sitemap: https://summitstrategygroup.com/sitemap.xml

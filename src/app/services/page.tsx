@@ -1,72 +1,120 @@
-```typescript
-import { images } from '@/config/images';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { images } from "@/config/images";
+import { ArrowRight, BarChart3, Megaphone, Layers, Code, Zap } from "lucide-react";
 
-export const metadata = {
-  title: 'Our Services | General Business',
-  description: 'Explore the services we offer to help your business succeed.',
-  openGraph: {
-    title: 'Our Services | General Business',
-    description: 'Explore the services we offer to help your business succeed.',
-    url: 'https://example.com/services',
-    images: [
-      images.service-1.src,
-    ],
+const services = [
+  {
+    title: "Strategic Planning",
+    desc: "Comprehensive business roadmaps that align your team and resources with your long-term vision.",
+    price: "Starting at $5,000",
+    image: "service-1",
+    icon: Target,
   },
-};
+  {
+    title: "Data Analytics",
+    desc: "Turn raw data into actionable insights with our advanced reporting and visualization services.",
+    price: "Starting at $3,500/mo",
+    image: "service-2",
+    icon: BarChart3,
+  },
+  {
+    title: "Process Optimization",
+    desc: "Streamline operations and eliminate waste to boost efficiency and reduce costs.",
+    price: "Starting at $4,500",
+    image: "service-3",
+    icon: Layers,
+  },
+  {
+    title: "Digital Marketing",
+    desc: "Full-funnel marketing strategies from SEO and content to paid acquisition and retention.",
+    price: "Starting at $4,000/mo",
+    image: "gallery-1",
+    icon: Megaphone,
+  },
+  {
+    title: "Web Development",
+    desc: "High-performance websites and web applications built to convert visitors into customers.",
+    price: "Starting at $8,000",
+    image: "gallery-2",
+    icon: Code,
+  },
+  {
+    title: "Change Management",
+    desc: "Navigate organizational shifts smoothly with expert communication and training programs.",
+    price: "Custom Quote",
+    image: "gallery-3",
+    icon: Zap,
+  },
+];
 
-export default function Services() {
+// Fix icon import for Target
+import { Target } from "lucide-react";
+
+export default function ServicesPage() {
   return (
-    <main>
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Our Services</h1>
-          <p className="text-lg leading-relaxed text-gray-600 mt-4">
-            We offer a range of services tailored to meet the unique needs of your business.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8">
-            <div className="p-6 md:p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-              <img
-                src={images['service-1'].src}
-                alt={images['service-1'].alt}
-                width={images['service-1'].width}
-                height={images['service-1'].height}
-                className="rounded-xl"
-              />
-              <h2 className="text-xl font-semibold mt-4">Consulting</h2>
-              <p className="text-base leading-relaxed text-gray-600">
-                Expert consulting services to guide your business strategy.
-              </p>
-            </div>
-            <div className="p-6 md:p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-              <img
-                src={images['service-2'].src}
-                alt={images['service-2'].alt}
-                width={images['service-2'].width}
-                height={images['service-2'].height}
-                className="rounded-xl"
-              />
-              <h2 className="text-xl font-semibold mt-4">Data Analysis</h2>
-              <p className="text-base leading-relaxed text-gray-600">
-                Comprehensive data analysis to inform your business decisions.
-              </p>
-            </div>
-            <div className="p-6 md:p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-              <img
-                src={images['service-3'].src}
-                alt={images['service-3'].alt}
-                width={images['service-3'].width}
-                height={images['service-3'].height}
-                className="rounded-xl"
-              />
-              <h2 className="text-xl font-semibold mt-4">Workshops</h2>
-              <p className="text-base leading-relaxed text-gray-600">
-                Interactive workshops to enhance team collaboration and skills.
-              </p>
-            </div>
+    <>
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+              Services Designed for Growth
+            </h1>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              From high-level strategy to tactical execution, we provide the full spectrum of business services you need to scale.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                className="group bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={images[service.image as keyof typeof images].src}
+                    alt={images[service.image as keyof typeof images].alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <service.icon className="h-6 w-6 text-primary" />
+                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      {service.price}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 min-h-[3rem]">{service.desc}</p>
+                  <a
+                    href="/contact"
+                    className="text-primary font-semibold inline-flex items-center hover:underline"
+                  >
+                    Get Started <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
-```

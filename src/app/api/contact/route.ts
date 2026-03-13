@@ -1,46 +1,36 @@
 import { NextResponse } from "next/server";
-import { sanitizeInput } from "@/lib/utils";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, message, service } = body;
+    const { name, email, phone, service, message } = body;
 
-    // Server-side validation
-    if (!name || !email || !message) {
+    // Basic validation
+    if (!name || !email || !phone || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Sanitize inputs
-    const cleanData = {
-      name: sanitizeInput(name),
-      email: sanitizeInput(email),
-      phone: sanitizeInput(phone || ""),
-      message: sanitizeInput(message),
-      service: sanitizeInput(service || "General Inquiry"),
-    };
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
 
-    // In a real production environment, you would integrate with an email service like Resend, SendGrid, or AWS SES here.
-    // For this static export demo, we will simulate a successful send.
-    
-    // Example of how you would log it (or send to an external service):
-    console.log("Received Contact Form Submission:", cleanData);
+    // Simulate sending email (Replace with actual SendGrid/Resend logic in production)
+    // await sendEmail({ name, email, phone, service, message });
+    console.log("Form submitted:", { name, email, phone, service, message });
 
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    return NextResponse.json(
-      { message: "Message sent successfully" },
-      { status: 200 }
-    );
-
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error("Contact API Error:", error);
+    console.error("Contact API error:", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }
