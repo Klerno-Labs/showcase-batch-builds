@@ -1,164 +1,153 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, ArrowUp } from "lucide-react";
 import Link from "next/link";
-import { ArrowUp, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
-import { cn } from "@/lib/utils";
+
+const FOOTER_LINKS = {
+  About: [
+    { name: "Our Story", href: "#about" },
+    { name: "Team", href: "#about" },
+    { name: "Careers", href: "#" },
+  ],
+  Quick: [
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "#services" },
+    { name: "FAQ", href: "#faq" },
+  ],
+  Legal: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Cookie Policy", href: "#" },
+  ],
+};
 
 export function Footer() {
-  const [showTopBtn, setShowTopBtn] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowTopBtn(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* About Column */}
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-gray-900 font-bold text-lg">
-                A
-              </div>
-              <span className="text-xl font-bold tracking-tight">
-                Apex Strategic
-              </span>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Empowering businesses with strategic insights and innovative
-              solutions since 2010. We build partnerships that last.
+            <h3 className="text-xl font-bold tracking-tight">Summit Ridge</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Empowering businesses to reach new heights through strategic innovation and operational excellence.
             </p>
-          </div>
-
-          {/* Quick Links Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="text-gray-400 hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Connect Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">
-              Connect
-            </h3>
             <div className="flex space-x-4">
-              {/* Fix Issue #7: Add rel="noopener noreferrer" to all external links */}
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook page"
-                className="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our LinkedIn page"
-                className="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"
-              >
-                <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Twitter page"
-                className="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our LinkedIn page"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Instagram page"
-                className="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
-            <div className="mt-6">
-              <a
-                href="tel:+17135550198"
-                className="text-lg font-semibold text-white hover:text-gray-200"
-              >
-                (713) 555-0198
-              </a>
-              <p className="text-gray-400 text-sm mt-1">
-                Houston, TX
-              </p>
-            </div>
+          </div>
+
+          {/* About */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">Company</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              {FOOTER_LINKS.About.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">Resources</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              {FOOTER_LINKS.Quick.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">Contact</h4>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <span>4521 Westheimer Rd<br />Suite 200, Houston, TX 77027</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 flex-shrink-0" />
+                <a href="tel:+17135550123" className="hover:text-white transition-colors">
+                  (713) 555-0123
+                </a>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 flex-shrink-0" />
+                <a href="mailto:info@summitridge.com" className="hover:text-white transition-colors">
+                  info@summitridge.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Apex Strategic. All rights reserved.
+      <div className="border-t border-gray-800">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-4 py-6 sm:px-6 lg:px-8 md:flex-row">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Summit Ridge Consulting. All rights reserved.
           </p>
+          <div className="mt-4 flex space-x-6 md:mt-0">
+            {FOOTER_LINKS.Legal.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm text-gray-500 hover:text-gray-400 transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
           <button
             onClick={scrollToTop}
-            className={cn(
-              "mt-4 md:mt-0 flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors",
-              !showTopBtn && "invisible"
-            )}
+            className="mt-4 md:mt-0 rounded-full bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Back to top"
           >
-            <span>Back to top</span>
             <ArrowUp className="h-4 w-4" />
           </button>
         </div>
