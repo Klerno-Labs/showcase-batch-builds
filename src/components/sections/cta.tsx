@@ -1,34 +1,49 @@
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { images } from "@/config/images";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
 
 export function Cta() {
   return (
-    <section className="relative py-20 md:py-32 bg-slate-900 overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src={images.cta.src}
-          alt={images.cta.alt}
+          src={images["cta"].src}
+          alt={images["cta"].alt}
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
+          priority={false}
           sizes="100vw"
-          quality={80}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/70" />
+        <div className="absolute inset-0 bg-gray-900/85" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">
-          Ready to Scale Your Business?
-        </h2>
-        <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-          Join hundreds of successful companies that have leveraged Pegrio's expertise to achieve their goals. Let's build something great together.
-        </p>
-        <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-50 text-base font-semibold shadow-xl">
-          <Link href="/contact">Schedule a Consultation</Link>
-        </Button>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">
+            Ready to Transform Your Business?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Join hundreds of satisfied clients who have accelerated their growth with Pegrio Solutions. Your future starts today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-100">
+              <a href="#contact">Schedule a Call</a>
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <a href="#services">View Services</a>
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

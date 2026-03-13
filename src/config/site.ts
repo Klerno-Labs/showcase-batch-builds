@@ -1,36 +1,19 @@
-import { images } from "./images";
+import type { MetadataRoute } from "next";
 
 export const siteConfig = {
-  name: "Pegrio",
-  description: "Pegrio delivers innovative business solutions tailored to drive growth and efficiency for modern enterprises.",
-  url: "https://pegrio.com",
-  ogImage: images["hero"].src,
+  name: "Pegrio Solutions",
+  description: "Transforming businesses through innovative strategy and technology. We deliver results that drive growth.",
+  url: "https://pegrionext.com",
+  ogImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop",
   links: {
-    home: "/",
-    about: "/about",
-    services: "/services",
-    contact: "/contact",
+    twitter: "https://twitter.com",
+    linkedin: "https://linkedin.com",
   },
   contact: {
-    email: "info@pegrio.com",
-    phone: "(713) 555-0198",
+    phone: "(512) 555-0123",
+    email: "contact@pegrionext.com",
     address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
   },
-  socials: [
-    {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: "Twitter",
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com",
-      icon: "Linkedin",
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com",
-      icon: "Github",
-    },
-  ],
 };
+
+export type SiteConfig = typeof siteConfig;

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://pegrio.com/sitemap.xml
+Sitemap: https://pegrionext.com/sitemap.xml
