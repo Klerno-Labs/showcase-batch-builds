@@ -3,29 +3,48 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, service, message } = body;
+    const { name, email, phone, message, _gotcha } = body;
 
-    // Basic validation on backend as well
-    if (!name || !email || !phone || !message) {
+    // Honeypot spam check
+    if (_gotcha) {
+      console.log("Bot detected via honeypot.");
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    // Basic Validation
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Missing required fields." },
         { status: 400 }
       );
     }
 
-    // In a real environment, you would use Nodemailer, SendGrid, or Resend here.
-    // For this static export compatible demo, we simulate a success after a delay.
-    // If implementing with Resend:
-    // await resend.emails.send({ from: '...', to: '...', subject: '...', html: '...' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address." },
+        { status: 400 }
+      );
+    }
 
-    console.log("Form submission received:", { name, email, phone, service, message });
+    // Simulate sending email logic
+    // In a real app, you would integrate Resend, SendGrid, or Nodemailer here.
+    console.log("─────────────────────────────────────");
+    console.log("NEW CONTACT FORM SUBMISSION");
+    console.log("From:", name);
+    console.log("Email:", email);
+    console.log("Phone:", phone || "Not provided");
+    console.log("Message:", message);
+    console.log("─────────────────────────────────────");
+
+    // Artificial delay to simulate network request
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json(
-      { message: "Message sent successfully" },
+      { success: true, message: "Message sent successfully!" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Contact API error:", error);
+    console.error("Contact API Error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

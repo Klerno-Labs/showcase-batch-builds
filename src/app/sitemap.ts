@@ -1,25 +1,30 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
+import { siteConfig } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://pegrio.com";
-
   return [
     {
-      url: baseUrl,
+      url: siteConfig.url,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${siteConfig.url}/about`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${siteConfig.url}/services`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
   ];
