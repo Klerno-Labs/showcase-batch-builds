@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Pegrio Business Solutions",
-  description: "Your partner in achieving business excellence.",
+  description: "Your partner in business growth and innovation.",
   url: "https://example.com",
   email: "info@pegrio.com",
   phone: "(512) 555-0199",
@@ -8,7 +8,7 @@ export const siteConfig = {
   hours: "Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed",
   social: {
     twitter: "https://twitter.com/pegrio",
-    facebook: "https://facebook.com/pegrio",
     linkedin: "https://linkedin.com/company/pegrio",
+    facebook: "https://facebook.com/pegrio",
   },
-};
+} as const;
