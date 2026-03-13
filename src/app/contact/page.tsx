@@ -3,16 +3,6 @@
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Contact Us | " + siteConfig.name,
-  description: "Get in touch with Pegrio Business Solutions.",
-  openGraph: {
-    title: "Contact Us | " + siteConfig.name,
-    description: "Get in touch with Pegrio Business Solutions.",
-    url: siteConfig.url + "/contact",
-    images: [],
-  },
-};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
