@@ -3,37 +3,34 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message, _gotcha } = body;
 
-    // Honeypot check
-    if (_gotcha) {
+    // Basic server-side validation
+    if (!body.name || !body.email || !body.message) {
       return NextResponse.json(
-        { message: "Spam detected" },
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Basic Validation
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { message: "Missing required fields" },
-        { status: 400 }
-      );
-    }
+    // In a real application, you would:
+    // 1. Validate the email format more strictly
+    // 2. Sanitize the inputs to prevent XSS
+    // 3. Send an email using a service like Resend, SendGrid, or AWS SES
+    // 4. Store the lead in a CRM or database (e.g., HubSpot, Airtable)
 
-    // Simulate email sending delay
-    // In a real app, you would use Nodemailer, SendGrid, or Resend here
+    console.log("Received contact form submission:", body);
+
+    // Simulate processing delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // console.log("Form submission received:", { name, email, phone, service, message });
 
     return NextResponse.json(
       { message: "Message sent successfully" },
       { status: 200 }
     );
   } catch (error) {
+    console.error("Contact form error:", error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }

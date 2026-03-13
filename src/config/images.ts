@@ -9,98 +9,98 @@
 // to edit to swap any image on the entire website.
 
 export const images = {
-  // Homepage hero banner — the first image visitors see
+  // Homepage hero banner — the first image visitors see — REPLACE with a real Unsplash URL matching: "Modern office workspace with natural light"
   "hero": {
     src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
-    alt: "Modern open office workspace with natural light flooding in",
+    alt: "Modern office workspace with natural light",
     width: 1200,
     height: 800,
   },
 
-  // Alternative hero image (used on inner pages or as fallback)
+  // Alternative hero image (used on inner pages or as fallback) — REPLACE with a real Unsplash URL matching: "Professional team collaborating in bright office"
   "hero-alt": {
     src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop",
-    alt: "Professional team collaborating on a project in a bright office",
+    alt: "Professional team collaborating in bright office",
     width: 1200,
     height: 800,
   },
 
-  // About page or About section on homepage
+  // About page or About section on homepage — REPLACE with a real Unsplash URL matching: "Business professionals in modern meeting room"
   "about": {
-    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&h=800&fit=crop",
-    alt: "Business professionals engaged in a serious meeting in a modern room",
+    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop",
+    alt: "Business professionals in modern meeting room",
     width: 1200,
     height: 800,
   },
 
-  // First service card image
+  // First service card image — REPLACE with a real Unsplash URL matching: "Creative professionals working together"
   "service-1": {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop",
-    alt: "Creative professionals brainstorming together with sticky notes",
+    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&h=800&fit=crop",
+    alt: "Creative professionals working together",
     width: 1200,
     height: 800,
   },
 
-  // Second service card image
+  // Second service card image — REPLACE with a real Unsplash URL matching: "Data analytics dashboard on screen"
   "service-2": {
     src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-    alt: "Data analytics dashboard on a computer screen showing growth metrics",
+    alt: "Data analytics dashboard on screen",
     width: 1200,
     height: 800,
   },
 
-  // Third service card image
+  // Third service card image — REPLACE with a real Unsplash URL matching: "Team workshop and brainstorming session"
   "service-3": {
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop",
-    alt: "Team workshop session with colleagues discussing strategy",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop",
+    alt: "Team workshop and brainstorming session",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 1
+  // Gallery image 1 — REPLACE with a real Unsplash URL matching: "Professional handshake in business setting"
   "gallery-1": {
     src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=800&fit=crop",
-    alt: "Professional handshake sealing a business deal",
+    alt: "Professional handshake in business setting",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 2
+  // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Modern conference room with city view"
   "gallery-2": {
-    src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&h=800&fit=crop",
-    alt: "Modern conference room with a beautiful city view",
+    src: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1200&h=800&fit=crop",
+    alt: "Modern conference room with city view",
     width: 1200,
     height: 800,
   },
 
-  // Team member photo
+  // Team member photo — REPLACE with a real Unsplash URL matching: "Diverse team celebrating success"
   "team-1": {
-    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&h=800&fit=crop",
-    alt: "Diverse team celebrating success with high fives",
+    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&fit=crop",
+    alt: "Diverse team celebrating success",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 3
+  // Gallery image 3 — REPLACE with a real Unsplash URL matching: "Technology workspace with multiple screens"
   "gallery-3": {
-    src: "https://images.unsplash.com/photo-1531297461136-82lw9z21167e?w=1200&h=800&fit=crop",
-    alt: "Technology workspace with multiple screens showing code",
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop",
+    alt: "Technology workspace with multiple screens",
     width: 1200,
     height: 800,
   },
 
-  // Call-to-action section background
+  // Call-to-action section background — REPLACE with a real Unsplash URL matching: "Innovation and technology concept"
   "cta": {
-    src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
-    alt: "Innovation concept with light bulb and technology elements",
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop",
+    alt: "Innovation and technology concept",
     width: 1200,
     height: 800,
   },
 
-  // Testimonials section background or decoration
+  // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Professional business environment"
   "testimonial-bg": {
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=800&fit=crop",
-    alt: "Professional business environment focusing on collaboration",
+    src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=800&fit=crop",
+    alt: "Professional business environment",
     width: 1200,
     height: 800,
   },
