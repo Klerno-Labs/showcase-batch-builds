@@ -1,26 +1,18 @@
-# Deployment Guide for Vercel
+# Deployment Guide for Pegrio Business Website
 
 ## Step-by-Step Vercel Deployment
+1. **Create a Vercel Account**: Sign up at [Vercel](https://vercel.com).
+2. **Import Project**: Click on "New Project" and import your GitHub repository.
+3. **Configure Environment Variables**:
+   - Go to the "Settings" tab of your project.
+   - Under "Environment Variables", add the following:
+     - `NEXT_PUBLIC_API_URL`: Your API URL.
 
-1. **Create a Vercel Account**
-   - Go to [Vercel](https://vercel.com) and sign up for an account.
+## Domain Setup Instructions
+1. In the Vercel dashboard, go to the "Domains" section.
+2. Add your custom domain and follow the instructions to configure DNS settings.
 
-2. **Import Your Project**
-   - Click on "New Project" and select your Git repository.
-
-3. **Configure Environment Variables**
-   - In the Vercel dashboard, navigate to your project settings.
-   - Under the "Environment Variables" section, add the following:
-     - `NEXT_PUBLIC_API_URL`: Your API base URL.
-
-4. **Domain Setup**
-   - In the Vercel dashboard, go to the "Domains" section.
-   - Add your custom domain or use the default Vercel domain.
-
-5. **Post-Deploy Checklist**
-   - Ensure SSL is enabled for your domain.
-   - Set up any necessary redirects.
-   - Integrate analytics if required.
-
-6. **Test Your Deployment**
-   - Visit your deployed site to ensure everything is functioning as expected.
+## Post-Deploy Checklist
+- **SSL**: Ensure SSL is enabled for your domain.
+- **Redirects**: Set up any necessary redirects in the Vercel dashboard.
+- **Analytics**: Integrate analytics tools if required.
