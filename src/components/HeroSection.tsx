@@ -1,4 +1,4 @@
-```typescript
+
 import { images } from "@/config/images";
 
 interface HeroSectionProps {
@@ -26,4 +26,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heading, subtext, ctaText }) 
 };
 
 export default HeroSection;
-```
