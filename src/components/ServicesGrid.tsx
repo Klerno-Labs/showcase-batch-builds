@@ -1,4 +1,4 @@
-```typescript
+
 import ServiceCard from "./ServiceCard";
 
 const services = [
@@ -21,4 +21,3 @@ const ServicesGrid: React.FC = () => {
 };
 
 export default ServicesGrid;
-```

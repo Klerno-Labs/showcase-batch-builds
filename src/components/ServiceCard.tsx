@@ -1,4 +1,4 @@
-```typescript
+
 import Image from "next/image";
 import { images } from "@/config/images";
 
@@ -25,4 +25,3 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 };
 
 export default ServiceCard;
-```

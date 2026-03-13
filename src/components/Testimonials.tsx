@@ -1,4 +1,4 @@
-```typescript
+
 interface Testimonial {
   quote: string;
   name: string;
@@ -27,4 +27,3 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 };
 
 export default Testimonials;
-```
