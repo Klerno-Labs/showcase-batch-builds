@@ -1,35 +1,45 @@
-import { Metadata } from "next";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import FAQ from "@/components/FAQ";
-import CTA from "@/components/CTA";
+```typescript
+import { images } from '@/config/images';
+import { cn } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: "Home",
-  description: "Pegrio helps businesses navigate complexity and achieve sustainable growth through strategic consulting.",
+export const metadata = {
+  title: 'Home | General Business',
+  description: 'Professional services for your business needs.',
+  openGraph: {
+    title: 'Home | General Business',
+    description: 'Professional services for your business needs.',
+    url: 'https://example.com',
+    images: [
+      images.hero.src,
+    ],
+  },
 };
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <About />
-      <Services />
-      <Testimonials />
-      <section className="py-16 bg-primary/5">
+    <main>
+      <section className="min-h-[80vh] flex items-center justify-center bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Pegrio?</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We combine deep industry expertise with a data-driven approach to deliver measurable results. Our team is dedicated to your success.
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+            Elevate Your Business
+          </h1>
+          <p className="text-lg leading-relaxed text-gray-600 mt-4">
+            We provide tailored solutions to help your business thrive in today's competitive landscape.
           </p>
+          <div className="mt-8">
+            <button className="bg-primary text-white py-3 px-6 rounded-lg shadow-lg hover:brightness-110 transition">
+              Get Started
+            </button>
+            <button className="border border-primary text-primary py-3 px-6 rounded-lg ml-4">
+              Learn More
+            </button>
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-8 border-2 border-gray-600 rounded-full animate-bounce"></div>
         </div>
       </section>
-      <FAQ />
-      <CTA />
-      <Contact />
-    </>
+    </main>
   );
 }
+```
