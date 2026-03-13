@@ -1,28 +1,23 @@
-"use client";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
-interface TextareaProps {
-  label: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-const Textarea: React.FC<TextareaProps> = ({ label, name, value, onChange }) => {
-  return (
-    <div className="mb-4">
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
-        {label}
-      </label>
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, ...props }, ref) => {
+    return (
       <textarea
-        name={name}
-        id={name}
-        value={value}
-        onChange={onChange}
-        className={cn("mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary")}
+        className={cn(
+          "flex min-h-[120px] w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base ring-offset-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-50 transition-all",
+          className
+        )}
+        ref={ref}
+        {...props}
       />
-    </div>
-  );
-};
+    );
+  }
+);
+Textarea.displayName = "Textarea";
 
-export default Textarea;
+export { Textarea };

@@ -1,27 +1,24 @@
-"use client";
-import React from 'react';
-import { cn } from '@/lib/cn';
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
-interface InputProps {
-  label: string;
-  type: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const Input: React.FC<InputProps> = ({ label, type, value, onChange }) => {
-  return (
-    <div className="flex flex-col mb-4">
-      <label className="mb-2 font-semibold">{label}</label>
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
       <input
         type={type}
-        value={value}
-        onChange={onChange}
-        className={cn('border border-muted rounded-md p-2')}
-        required
+        className={cn(
+          "flex h-12 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-50 transition-all",
+          className
+        )}
+        ref={ref}
+        {...props}
       />
-    </div>
-  );
-};
+    );
+  }
+);
+Input.displayName = "Input";
 
-export default Input;
+export { Input };

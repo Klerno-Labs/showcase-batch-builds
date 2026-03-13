@@ -1,50 +1,114 @@
-"use client";
-import { siteConfig } from "@/config/site";
-import { Phone, Mail } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 className="text-lg font-semibold">About Us</h3>
-          <p className="mt-2 text-sm">
-            We are dedicated to providing innovative solutions that help businesses thrive.
+    <footer className="bg-gray-900 text-white pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* About */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">Pegrio</h3>
+            <p className="text-gray-400 leading-relaxed">
+              Empowering businesses with innovative strategies and cutting-edge solutions. We build partnerships that drive growth and sustainable success.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
+              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul className="space-y-4 text-gray-400">
+              <li className="flex items-start space-x-3">
+                <MapPin size={20} className="mt-1 flex-shrink-0 text-primary-foreground" />
+                <span>4521 Westheimer Rd, Suite 200<br />Houston, TX 77027</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Phone size={20} className="flex-shrink-0" />
+                <a href="tel:+17135550123" className="hover:text-white transition-colors">(713) 555-0123</a>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Mail size={20} className="flex-shrink-0" />
+                <a href="mailto:info@pegrio.com" className="hover:text-white transition-colors">info@pegrio.com</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Facebook page"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Twitter page"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <Twitter size={20} />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our LinkedIn page"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-gray-400 text-sm">
+            © {new Date().getFullYear()} Pegrio. All rights reserved.
           </p>
+          <div className="flex space-x-6 text-sm text-gray-400">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+          <button
+            onClick={scrollToTop}
+            className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
+            aria-label="Back to top"
+          >
+            <span>Back to top</span>
+            <ArrowUp size={16} />
+          </button>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold">Quick Links</h3>
-          <ul className="mt-2 space-y-2">
-            <li><a href="/" className="hover:underline">Home</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
-            <li><a href="/services" className="hover:underline">Services</a></li>
-            <li><a href="/contact" className="hover:underline">Contact</a></li>
-            <li><a href="/faq" className="hover:underline">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold">Contact Info</h3>
-          <p className="mt-2 flex items-center">
-            <Phone className="mr-2" />
-            {siteConfig.phone}
-          </p>
-          <p className="mt-2 flex items-center">
-            <Mail className="mr-2" />
-            {siteConfig.email}
-          </p>
-          <p className="mt-2">{siteConfig.address}</p>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold">Follow Us</h3>
-          <ul className="mt-2 space-y-2">
-            <li><a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="hover:underline">Twitter</a></li>
-            <li><a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a></li>
-            <li><a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:underline">Facebook</a></li>
-          </ul>
-        </div>
-      </div>
-      <div className="mt-8 border-t border-gray-700 pt-4 text-center">
-        <p className="text-sm">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
       </div>
     </footer>
   );
