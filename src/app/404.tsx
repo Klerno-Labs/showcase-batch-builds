@@ -1,17 +1,13 @@
-```typescript
-import Link from 'next/link';
-
-export default function Custom404() {
+const NotFoundPage = () => {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-white">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold">404</h1>
-        <p className="text-lg text-gray-600">Page Not Found</p>
-        <Link href="/" className="mt-4 inline-block bg-primary text-white py-3 px-6 rounded-lg">
-          Go Back Home
-        </Link>
+    <main className="py-16 md:py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
+        <p className="text-lg">Sorry, the page you are looking for does not exist.</p>
+        <Link href="/" className="text-primary hover:underline">Go back to Home</Link>
       </div>
     </main>
   );
-}
-```
+};
+
+export default NotFoundPage;
