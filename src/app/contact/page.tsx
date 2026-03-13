@@ -1,98 +1,93 @@
-import { Metadata } from "next";
-import { ContactForm } from "@/components/contact-form";
-import { siteConfig } from "@/config/site";
+import ContactForm from "@/components/sections/ContactForm";
 import { MapPin, Mail, Phone } from "lucide-react";
-import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Contact Us",
-  description: "Get in touch with Pegrio for strategic consulting services.",
+  description: "Get in touch with Pegrio. Schedule a consultation or visit our Houston office at Westheimer Rd.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
-            Let's Talk Business
-          </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Reach out to us for inquiries, project proposals, or just to say hello.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h2>
-              <p className="text-slate-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-full text-blue-600">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">Office</h3>
-                  <p className="text-slate-600">{siteConfig.contact.address}</p>
-                  <Link 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    Get directions
-                  </Link>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-full text-blue-600">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">Email</h3>
-                  <Link href={`mailto:${siteConfig.contact.email}`} className="text-slate-600 hover:text-blue-600">
-                    {siteConfig.contact.email}
-                  </Link>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-full text-blue-600">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">Phone</h3>
-                  <Link href={`tel:${siteConfig.contact.phone}`} className="text-slate-600 hover:text-blue-600">
-                    {siteConfig.contact.phone}
-                  </Link>
-                  <p className="text-sm text-slate-500 mt-1">{siteConfig.contact.hours}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Fake Map Placeholder - Static for performance/privacy */}
-            <div className="mt-8 rounded-xl overflow-hidden shadow-md bg-slate-200 h-64 flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-[url('https://imgs.search.brave.com/5c8989185d89c0f3b7e8a2e3e7a6c8a2e3f7b1a8c5d8e2f1a2b3c4d5e6f7a8b9c/500/300')] bg-cover bg-center opacity-50 grayscale" />
-              <div className="relative z-10 bg-white/90 p-4 rounded-lg shadow-lg text-center">
-                <p className="font-bold text-slate-900">Pegrio HQ</p>
-                <p className="text-sm text-slate-600">Houston, TX</p>
-              </div>
-            </div>
+    <main>
+      <section className="bg-gray-50 pt-16 pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+              Get in Touch
+            </h1>
+            <p className="text-lg text-gray-600">
+              Whether you have a question about our services, pricing, or just want to say hello, we are here to help.
+            </p>
           </div>
 
-          {/* Form */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-            <ContactForm />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                <ul className="space-y-6">
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 flex-shrink-0">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Office</div>
+                      <div className="text-gray-600">
+                        4521 Westheimer Rd, Suite 200<br />
+                        Houston, TX 77027
+                      </div>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 flex-shrink-0">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Phone</div>
+                      <a href="tel:+17135550123" className="text-primary-600 hover:text-primary-700">
+                        (713) 555-0123
+                      </a>
+                      <div className="text-sm text-gray-500">Mon-Fri 8am-6pm</div>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 flex-shrink-0">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Email</div>
+                      <a href="mailto:info@pegrio.com" className="text-primary-600 hover:text-primary-700">
+                        info@pegrio.com
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden relative">
+                 {/* Using a static image for map to avoid API keys in this template */}
+                 <img 
+                   src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=600&h=400&fit=crop" 
+                   alt="Map Location" 
+                   className="w-full h-full object-cover grayscale"
+                 />
+                 <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                    <a href="https://maps.google.com/?q=4521+Westheimer+Rd+Houston+TX" target="_blank" rel="noopener noreferrer" className="bg-white px-4 py-2 rounded-lg shadow-lg font-bold text-sm text-gray-900 hover:bg-gray-50 transition-colors">
+                      Open in Google Maps
+                    </a>
+                 </div>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+              <ContactForm />
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

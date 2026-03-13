@@ -1,12 +1,12 @@
-import { MetadataRoute } from 'next';
-import { siteConfig } from '@/config/site';
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/_next/"],
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: "https://pegrio.com/sitemap.xml",
   };
 }

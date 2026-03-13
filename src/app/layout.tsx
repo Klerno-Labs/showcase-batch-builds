@@ -1,85 +1,48 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { siteConfig } from "@/config/site";
-import { images } from "@/config/images";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
-
-export const metadataBase = new URL(siteConfig.url);
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pegrio.com"),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: "Pegrio | Strategic Business Solutions",
+    template: "%s | Pegrio"
   },
-  description: siteConfig.description,
+  description: "Pegrio delivers expert strategic consulting, data analytics, and professional workshops to drive business growth and efficiency in Houston, TX.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
+    url: "https://pegrio.com",
+    siteName: "Pegrio",
+    title: "Pegrio | Strategic Business Solutions",
+    description: "Partner with Pegrio for scalable business strategies and data-driven insights.",
     images: [
       {
-        url: siteConfig.ogImage,
+        url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop",
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "Pegrio Office Space",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    title: "Pegrio | Strategic Business Solutions",
+    description: "Expert strategic consulting and data analytics.",
+    images: ["https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop"],
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+  robots: {
+    index: true,
+    follow: true,
   },
-  manifest: "/site.webmanifest",
-};
-
-// JSON-LD Structured Data
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: siteConfig.name,
-  image: siteConfig.ogImage,
-  description: siteConfig.description,
-  url: siteConfig.url,
-  telephone: siteConfig.contact.phone,
-  email: siteConfig.contact.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "4521 Westheimer Rd, Suite 200",
-    addressLocality: "Houston",
-    addressRegion: "TX",
-    postalCode: "77027",
-    addressCountry: "US"
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "29.7373",
-    longitude: "-95.4618"
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    opens: "08:00",
-    closes: "18:00"
-  }
 };
 
 export default function RootLayout({
@@ -88,20 +51,58 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen flex flex-col font-sans bg-white text-gray-900 antialiased">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Pegrio",
+              "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+              "@id": "https://pegrio.com",
+              "url": "https://pegrio.com",
+              "telephone": "+17135550123",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4521 Westheimer Rd, Suite 200",
+                "addressLocality": "Houston",
+                "addressRegion": "TX",
+                "postalCode": "77027",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 29.7374, 
+                "longitude": -95.4618 
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/pegrio",
+                "https://www.twitter.com/pegrio",
+                "https://www.linkedin.com/company/pegrio"
+              ]
+            }),
+          }}
         />
-      </head>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
 }
-
-import { cn } from "@/lib/utils";

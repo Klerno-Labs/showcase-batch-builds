@@ -1,52 +1,48 @@
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
-    const { name, email, phone, message, _gotcha } = body;
+    const body = await request.json();
+    
+    // Basic validation
+    const { name, email, phone, service, message, _gotcha } = body;
 
-    // Honeypot spam check
+    // Honeypot check
     if (_gotcha) {
-      console.log("Bot detected via honeypot.");
-      return NextResponse.json({ success: true }, { status: 200 });
+      // Return success to fool bots, but don't actually process
+      return NextResponse.json({ message: "Message received" }, { status: 200 });
     }
 
-    // Basic Validation
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !message) {
       return NextResponse.json(
-        { error: "Missing required fields." },
+        { message: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email address." },
-        { status: 400 }
-      );
-    }
-
-    // Simulate sending email logic
-    // In a real app, you would integrate Resend, SendGrid, or Nodemailer here.
-    console.log("─────────────────────────────────────");
-    console.log("NEW CONTACT FORM SUBMISSION");
-    console.log("From:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone || "Not provided");
-    console.log("Message:", message);
-    console.log("─────────────────────────────────────");
-
-    // Artificial delay to simulate network request
+    // In a real app, you would:
+    // 1. Send an email using Nodemailer, SendGrid, or Resend
+    // 2. Save to a database (Supabase, MongoDB, etc.)
+    // 3. Create a CRM entry (HubSpot, Salesforce)
+    
+    // Simulating an API call delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
+    console.log("=== Contact Form Submission ===");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Phone:", phone);
+    console.log("Service:", service);
+    console.log("Message:", message);
+
     return NextResponse.json(
-      { success: true, message: "Message sent successfully!" },
+      { message: "Message sent successfully" },
       { status: 200 }
     );
   } catch (error) {
     console.error("Contact API Error:", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }

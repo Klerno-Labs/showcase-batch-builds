@@ -51,7 +51,7 @@ export const images = {
 
   // Third service card image — REPLACE with a real Unsplash URL matching: "Team workshop and brainstorming session"
   "service-3": {
-    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop",
     alt: "Team workshop and brainstorming session",
     width: 1200,
     height: 800,
@@ -67,7 +67,7 @@ export const images = {
 
   // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Modern conference room with city view"
   "gallery-2": {
-    src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=1200&h=800&fit=crop",
     alt: "Modern conference room with city view",
     width: 1200,
     height: 800,
@@ -75,7 +75,7 @@ export const images = {
 
   // Team member photo — REPLACE with a real Unsplash URL matching: "Diverse team celebrating success"
   "team-1": {
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1522075469751-3a3694c60e9e?w=1200&h=800&fit=crop",
     alt: "Diverse team celebrating success",
     width: 1200,
     height: 800,
@@ -99,16 +99,8 @@ export const images = {
 
   // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Professional business environment"
   "testimonial-bg": {
-    src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
     alt: "Professional business environment",
-    width: 1200,
-    height: 800,
-  },
-
-  // Founder and CEO portrait — Added to fix missing key issue
-  "founder": {
-    src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&h=800&fit=crop",
-    alt: "Founder and CEO portrait",
     width: 1200,
     height: 800,
   },
