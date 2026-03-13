@@ -1,95 +1,95 @@
 export const images = {
-  // Homepage hero banner — the first image visitors see — REPLACE with a real Unsplash URL matching: "Modern office workspace with natural light"
+  // Homepage hero banner — the first image visitors see
   "hero": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Modern office workspace with natural light",
     width: 1200,
     height: 800,
   },
 
-  // Alternative hero image (used on inner pages or as fallback) — REPLACE with a real Unsplash URL matching: "Professional team collaborating in bright office"
+  // Alternative hero image (used on inner pages or as fallback)
   "hero-alt": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Professional team collaborating in bright office",
     width: 1200,
     height: 800,
   },
 
-  // About page or About section on homepage — REPLACE with a real Unsplash URL matching: "Business professionals in modern meeting room"
+  // About page or About section on homepage
   "about": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Business professionals in modern meeting room",
     width: 1200,
     height: 800,
   },
 
-  // First service card image — REPLACE with a real Unsplash URL matching: "Creative professionals working together"
+  // First service card image
   "service-1": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Creative professionals working together",
     width: 1200,
     height: 800,
   },
 
-  // Second service card image — REPLACE with a real Unsplash URL matching: "Data analytics dashboard on screen"
+  // Second service card image
   "service-2": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Data analytics dashboard on screen",
     width: 1200,
     height: 800,
   },
 
-  // Third service card image — REPLACE with a real Unsplash URL matching: "Team workshop and brainstorming session"
+  // Third service card image
   "service-3": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Team workshop and brainstorming session",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 1 — REPLACE with a real Unsplash URL matching: "Professional handshake in business setting"
+  // Gallery image 1
   "gallery-1": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Professional handshake in business setting",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Modern conference room with city view"
+  // Gallery image 2
   "gallery-2": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Modern conference room with city view",
     width: 1200,
     height: 800,
   },
 
-  // Team member photo — REPLACE with a real Unsplash URL matching: "Diverse team celebrating success"
+  // Team member photo
   "team-1": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Diverse team celebrating success",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 3 — REPLACE with a real Unsplash URL matching: "Technology workspace with multiple screens"
+  // Gallery image 3
   "gallery-3": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Technology workspace with multiple screens",
     width: 1200,
     height: 800,
   },
 
-  // Call-to-action section background — REPLACE with a real Unsplash URL matching: "Innovation and technology concept"
+  // Call-to-action section background
   "cta": {
-    src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Innovation and technology concept",
     width: 1200,
     height: 800,
   },
 
-  // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Professional business environment"
+  // Testimonials section background or decoration
   "testimonial-bg": {
-    src: "https://images.unsplash.com/photo-1584515932021-3b1b9b5d5a5c?w=1200&h=800&fit=crop",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
     alt: "Professional business environment",
     width: 1200,
     height: 800,

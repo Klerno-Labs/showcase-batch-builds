@@ -2,23 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-}
-
-a {
-  color: #C5A086;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+:root {
+  --primary: #1d4ed8; /* Example primary color */
+  --secondary: #64748b; /* Example secondary color */
 }
