@@ -1,106 +1,96 @@
-// ── Image Configuration ──────────────────────────────────────────────
-// ✏️  HOW TO CHANGE IMAGES:
-// 1. Find the slot you want to change below (e.g. "hero", "about", "service-1")
-// 2. Replace the "src" URL with your own image URL
-// 3. Update the "alt" text to describe the new image
-// 4. Save — every component on the site updates automatically
-//
-// All components import from this file. This is the ONLY file you need
-// to edit to swap any image on the entire website.
-
 export const images = {
-  // Homepage hero banner — the first image visitors see
+  // Homepage hero banner — the first image visitors see — REPLACE with a real Unsplash URL matching: "Modern office workspace with natural light"
   "hero": {
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2071&auto=format&fit=crop",
-    alt: "Modern open office space with natural light",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Modern office workspace with natural light",
     width: 1200,
     height: 800,
   },
 
-  // Alternative hero image (used on inner pages or as fallback)
+  // Alternative hero image (used on inner pages or as fallback) — REPLACE with a real Unsplash URL matching: "Professional team collaborating in bright office"
   "hero-alt": {
-    src: "https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=2070&auto=format&fit=crop",
-    alt: "Professional business environment",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Professional team collaborating in bright office",
     width: 1200,
     height: 800,
   },
 
-  // About page or About section on homepage
+  // About page or About section on homepage — REPLACE with a real Unsplash URL matching: "Business professionals in modern meeting room"
   "about": {
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop",
-    alt: "Diverse team of professionals meeting",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Business professionals in modern meeting room",
     width: 1200,
     height: 800,
   },
 
-  // First service card image
+  // First service card image — REPLACE with a real Unsplash URL matching: "Creative professionals working together"
   "service-1": {
-    src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2073&auto=format&fit=crop",
-    alt: "Legal documents and pen on desk",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Creative professionals working together",
     width: 1200,
     height: 800,
   },
 
-  // Second service card image
+  // Second service card image — REPLACE with a real Unsplash URL matching: "Data analytics dashboard on screen"
   "service-2": {
-    src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1974&auto=format&fit=crop",
-    alt: "Modern real estate architecture",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Data analytics dashboard on screen",
     width: 1200,
     height: 800,
   },
 
-  // Third service card image
+  // Third service card image — REPLACE with a real Unsplash URL matching: "Team workshop and brainstorming session"
   "service-3": {
-    src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2069&auto=format&fit=crop",
-    alt: "Hands joined together in agreement",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Team workshop and brainstorming session",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 1
+  // Gallery image 1 — REPLACE with a real Unsplash URL matching: "Professional handshake in business setting"
   "gallery-1": {
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop",
-    alt: "Attorney reviewing case files",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Professional handshake in business setting",
     width: 1200,
     height: 800,
   },
 
-  // Gallery image 2
+  // Gallery image 2 — REPLACE with a real Unsplash URL matching: "Modern conference room with city view"
   "gallery-2": {
-    src: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop",
-    alt: "Law library with leather books",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Modern conference room with city view",
     width: 1200,
     height: 800,
   },
 
-  // Team member photo
+  // Team member photo — REPLACE with a real Unsplash URL matching: "Diverse team celebrating success"
   "team-1": {
-    src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2070&auto=format&fit=crop",
-    alt: "Senior Attorney Portrait",
-    width: 800,
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Diverse team celebrating success",
+    width: 1200,
     height: 800,
   },
 
-  // Gallery image 3
+  // Gallery image 3 — REPLACE with a real Unsplash URL matching: "Technology workspace with multiple screens"
   "gallery-3": {
-    src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
-    alt: "Justice scales abstract",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Technology workspace with multiple screens",
     width: 1200,
     height: 800,
   },
 
-  // Call-to-action section background
+  // Call-to-action section background — REPLACE with a real Unsplash URL matching: "Innovation and technology concept"
   "cta": {
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop",
-    alt: "Attorney working late at office",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Innovation and technology concept",
     width: 1200,
     height: 800,
   },
 
-  // Testimonials section background or decoration
+  // Testimonials section background or decoration — REPLACE with a real Unsplash URL matching: "Professional business environment"
   "testimonial-bg": {
-    src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop",
-    alt: "Corporate meeting room",
+    src: "https://images.unsplash.com/photo-1588702547921-4f5f7f0e9e1e?w=1200&h=800&fit=crop",
+    alt: "Professional business environment",
     width: 1200,
     height: 800,
   },
