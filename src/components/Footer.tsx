@@ -1,127 +1,50 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { ArrowUp, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
-const footerLinks = {
-  about: [
-    { name: "Our Company", href: "#about" },
-    { name: "Careers", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Partners", href: "#" },
-  ],
-  services: [
-    { name: "Strategic Consulting", href: "#services" },
-    { name: "Financial Planning", href: "#services" },
-    { name: "Digital Transformation", href: "#services" },
-    { name: "Case Studies", href: "#" },
-  ],
-  legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Cookie Policy", href: "#" },
-  ],
-};
-
-export default function Footer() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
+export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Brand Column */}
+          {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="text-2xl font-bold tracking-tight">
-              Pegrio<span className="text-blue-500">.</span>
-            </Link>
-            <p className="text-gray-400 leading-relaxed">
-              Empowering businesses with innovative strategies and operational excellence since 2014.
+            <h3 className="text-2xl font-bold tracking-tight">
+              Apex<span className="text-primary-400">Strategic</span>
+            </h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Empowering businesses to achieve sustainable growth through innovative strategic planning and digital transformation.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Visit our LinkedIn page"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Visit our Twitter page"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Visit our Facebook page"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Visit our Instagram page"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+            <div className="flex gap-4 pt-2">
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label={`Visit our ${Icon.name} page`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* About Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.about.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
-                    {link.name}
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-3">
+              {["About Us", "Services", "Case Studies", "Testimonials", "Contact"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`#${item.toLowerCase().replace(" ", "-")}`}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {item}
                   </Link>
                 </li>
               ))}
@@ -130,50 +53,64 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li className="flex items-start">
-                <span className="mt-1 mr-2">•</span>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 flex-shrink-0 text-primary-400" />
                 <span>4521 Westheimer Rd, Suite 200<br />Houston, TX 77027</span>
               </li>
-              <li>
-                <a href="tel:+17135550199" className="hover:text-white transition-colors">
-                  (713) 555-0199
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 flex-shrink-0 text-primary-400" />
+                <a href="tel:7135550198" className="hover:text-white transition-colors">
+                  (713) 555-0198
                 </a>
               </li>
-              <li>
-                <a href="mailto:info@pegrio.com" className="hover:text-white transition-colors">
-                  info@pegrio.com
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 flex-shrink-0 text-primary-400" />
+                <a href="mailto:contact@apexstrategic.com" className="hover:text-white transition-colors">
+                  contact@apexstrategic.com
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Hours */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Business Hours</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li className="flex justify-between">
+                <span>Mon - Fri</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Saturday</span>
+                <span>9:00 AM - 2:00 PM</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Sunday</span>
+                <span>Closed</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Pegrio Solutions. All rights reserved.
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Apex Strategic Solutions. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm text-gray-400">
-            {footerLinks.legal.map((link) => (
-              <Link key={link.name} href={link.href} className="hover:text-white transition-colors">
-                {link.name}
-              </Link>
-            ))}
+          <div className="flex gap-6 text-sm text-gray-500">
+            <Link href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
           </div>
+          <button
+            onClick={scrollToTop}
+            className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-colors"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="h-6 w-6" />
-        </button>
-      )}
     </footer>
   );
 }

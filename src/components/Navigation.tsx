@@ -1,129 +1,109 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { Menu, X, Phone } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
-];
-
-export default function Navigation() {
+export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-        isScrolled
-          ? "bg-white/90 backdrop-blur-lg shadow-sm border-gray-100"
-          : "bg-white/80 backdrop-blur-md border-transparent"
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        scrolled
+          ? "bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm"
+          : "bg-transparent border-b border-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
-              P
-            </div>
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">
-              Pegrio
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 group">
+             {/* Using text as logo for simplicity, can be swapped to image */}
+            <span className="text-2xl font-bold text-primary-900 tracking-tight group-hover:text-primary-700 transition-colors">
+              Apex<span className="text-primary-600">Strategic</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={cn(
-                  "text-base font-medium transition-colors hover:text-primary relative",
-                  pathname === link.href
-                    ? "text-primary"
-                    : "text-gray-600"
-                )}
+                className="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors relative group"
               >
                 {link.name}
-                {pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary-600 transition-all group-hover:w-full"></span>
               </Link>
             ))}
-          </nav>
+          </div>
 
-          {/* CTA & Phone */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="tel:+17135550123"
-              className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-            >
-              <Phone size={18} />
-              <span>(713) 555-0123</span>
+          {/* CTA */}
+          <div className="hidden md:block">
+            <a href="#contact" className="text-sm font-semibold text-gray-900 hover:text-primary-600">
+              (713) 555-0198
             </a>
-            <Link href="#contact">
-              <button className="bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:brightness-110 transition-all shadow-sm hover:shadow-md">
-                Get Started
-              </button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            type="button"
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden fixed inset-0 top-20 bg-white transform transition-transform duration-300 ease-in-out overflow-y-auto",
+          "md:hidden fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out pt-20",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col p-6 space-y-6">
+        <div className="px-4 pt-2 pb-6 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
+              className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md"
               onClick={() => setIsOpen(false)}
-              className="text-xl font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {link.name}
             </Link>
           ))}
-          <div className="pt-6 border-t border-gray-100">
-            <Link
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="block w-full bg-primary text-white text-center px-6 py-3 rounded-lg font-medium hover:brightness-110 transition-all"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </nav>
+           <Link
+            href="tel:7135550198"
+            className="flex items-center gap-3 px-3 py-3 text-base font-medium text-primary-600 hover:bg-primary-50 rounded-md"
+          >
+            Call (713) 555-0198
+          </Link>
+        </div>
       </div>
     </header>
   );

@@ -1,37 +1,35 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pegrio.com"),
+  metadataBase: new URL("https://apexstrategic.com"),
   title: {
-    default: "Pegrio Solutions | Business Consulting & Strategy",
-    template: "%s | Pegrio Solutions",
+    default: "Apex Strategic Solutions | Houston Business Consulting",
+    template: "%s | Apex Strategic Solutions"
   },
-  description: "Pegrio Solutions provides top-tier business consulting, strategic planning, and operational optimization for modern enterprises.",
+  description: "Empowering Houston businesses with data-driven strategy, digital transformation, and operational consulting. Achieve sustainable growth with Apex.",
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://pegrio.com",
-    siteName: "Pegrio Solutions",
-    title: "Pegrio Solutions | Business Consulting & Strategy",
-    description: "Expert business consulting services to drive growth and efficiency.",
+    title: "Apex Strategic Solutions",
+    description: "Strategic growth for modern businesses.",
+    url: "https://apexstrategic.com",
+    siteName: "Apex Strategic Solutions",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+        url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop",
         width: 1200,
-        height: 800,
-        alt: "Pegrio Solutions Office",
+        height: 630,
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -42,10 +40,60 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      </head>
+      <body className={`${inter.className} antialiased`}>
+        <Navigation />
+        <main>{children}</main>
         <Footer />
+        
+        {/* Structured Data for Local Business */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Apex Strategic Solutions",
+              "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+              "@id": "https://apexstrategic.com",
+              "url": "https://apexstrategic.com",
+              "telephone": "+17135550198",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4521 Westheimer Rd, Suite 200",
+                "addressLocality": "Houston",
+                "addressRegion": "TX",
+                "postalCode": "77027",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 29.7374,
+                "longitude": -95.4615
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/apexstrategic",
+                "https://www.linkedin.com/company/apexstrategic"
+              ]
+            }),
+          }}
+        />
       </body>
     </html>
   );
