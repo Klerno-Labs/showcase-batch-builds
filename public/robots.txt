@@ -1,4 +1,3 @@
-```
 User-agent: *
 Allow: /
-```
+Sitemap: https://pegrio.com/sitemap.xml

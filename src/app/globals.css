@@ -3,11 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+  body {
+    @apply text-gray-900 bg-white;
   }
 }
 
@@ -15,14 +12,4 @@
   .text-balance {
     text-wrap: balance;
   }
-}
-
-/* Smooth Scroll Behavior for Browsers that don't support css scroll-behavior: smooth */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

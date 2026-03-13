@@ -1,6 +1,5 @@
-"use client";
-
-import { Facebook, Twitter, Linkedin, Instagram, ArrowUp, Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -11,104 +10,82 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* About */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-4">Pegrio</h3>
-            <p className="text-gray-400 leading-relaxed">
-              Empowering businesses with innovative strategies and cutting-edge solutions. We build partnerships that drive growth and sustainable success.
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">P</div>
+              <span className="text-xl font-bold">Pegrio</span>
+            </div>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Strategic consulting for the modern age. We help businesses navigate complexity and achieve sustainable growth.
             </p>
+            <div className="flex gap-4">
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  aria-label={`Visit our ${Icon.name} page`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-800 rounded-lg hover:bg-primary transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+            <h4 className="text-lg font-bold mb-6">Company</h4>
+            <ul className="space-y-4">
+              <li><Link href="#about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="#services" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
+              <li><Link href="#testimonials" className="text-gray-400 hover:text-white transition-colors">Testimonials</Link></li>
+              <li><Link href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <h4 className="text-lg font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-gray-400">
-              <li className="flex items-start space-x-3">
-                <MapPin size={20} className="mt-1 flex-shrink-0 text-primary-foreground" />
-                <span>4521 Westheimer Rd, Suite 200<br />Houston, TX 77027</span>
+              <li>4521 Westheimer Rd, Suite 200</li>
+              <li>Houston, TX 77027</li>
+              <li>
+                <a href="tel:+17135550199" className="hover:text-white transition-colors">
+                  (713) 555-0199
+                </a>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone size={20} className="flex-shrink-0" />
-                <a href="tel:+17135550123" className="hover:text-white transition-colors">(713) 555-0123</a>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Mail size={20} className="flex-shrink-0" />
-                <a href="mailto:info@pegrio.com" className="hover:text-white transition-colors">info@pegrio.com</a>
+              <li>
+                <a href="mailto:info@pegrio.com" className="hover:text-white transition-colors">
+                  info@pegrio.com
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our Facebook page"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our Twitter page"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our LinkedIn page"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our Instagram page"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <Instagram size={20} />
-              </a>
-            </div>
+            <h4 className="text-lg font-bold mb-6">Legal</h4>
+            <ul className="space-y-4">
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</Link></li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Pegrio. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
             aria-label="Back to top"
           >
-            <span>Back to top</span>
-            <ArrowUp size={16} />
+            Back to top <ArrowUp className="w-4 h-4" />
           </button>
         </div>
       </div>
