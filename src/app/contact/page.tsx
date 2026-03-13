@@ -4,10 +4,6 @@ import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Contact Us | Pegrio Business Solutions",
-  description: "Get in touch with Pegrio Business Solutions.",
-};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
