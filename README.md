@@ -1,6 +1,6 @@
 # Pegrio Business Website
 
-A modern, clean, and professional website designed to generate leads for general business services. Built with Next.js and Tailwind CSS, this website is fully responsive and optimized for performance.
+A modern, responsive website designed for general business services, built with Next.js and Tailwind CSS. This website aims to generate leads through a clean and professional design, featuring essential pages and components.
 
 ## Tech Stack
 - Next.js 14+
@@ -30,13 +30,13 @@ npm run dev
 Open your browser and navigate to `http://localhost:3000`.
 
 ### Build
-To build the project for production:
+To create an optimized production build:
 ```bash
 npm run build
 ```
 
 ### Deploy
-To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md.
+To deploy the application, follow the instructions in the DEPLOYMENT_GUIDE.md.
 
 ## Project Structure Overview
 ```
@@ -44,49 +44,45 @@ To deploy the project, follow the instructions in the DEPLOYMENT_GUIDE.md.
   /app
     /api
       /contact
-        route.ts
     /components
-      Hero.tsx
-      Navbar.tsx
-      Footer.tsx
-      ContactForm.tsx
-      Testimonials.tsx
-      Services.tsx
-      About.tsx
     /config
       images.ts
-    /styles
-      globals.css
     /pages
-      index.tsx
       about.tsx
-      services.tsx
       contact.tsx
       faq.tsx
+      home.tsx
+      services.tsx
+    /styles
   /public
-    favicon.ico
-    images/
+  /utils
 ```
 
 ## Image Customization
-To change any image on the site, edit the `src/config/images.ts` file:
+To change any image on the site, edit `src/config/images.ts`:
+1. Find the slot you want to change (e.g., "hero", "about").
+2. Replace the `src` URL with your own image URL.
+3. Update the `alt` text to describe the new image.
+4. Save the file — changes will reflect across all components using that image.
+
+### Image Slots
 - **hero**: Homepage hero banner
 - **hero-alt**: Alternative hero image
 - **about**: About page image
 - **service-1**: First service card image
 - **service-2**: Second service card image
 - **service-3**: Third service card image
-- **gallery-1**: First gallery image
-- **gallery-2**: Second gallery image
+- **gallery-1**: Gallery image 1
+- **gallery-2**: Gallery image 2
 - **team-1**: Team member photo
-- **gallery-3**: Third gallery image
+- **gallery-3**: Gallery image 3
 - **cta**: Call-to-action section background
 - **testimonial-bg**: Testimonials section background
 
 ## Brand Customization
-- **Colors**: Modify the `tailwind.config.js` file to change the primary color and other color settings.
-- **Fonts**: Update the font settings in `src/app/layout.tsx`.
-- **Logo**: If a logo slot exists, update the image URL in `src/config/images.ts`.
+- **Colors**: Modify colors in `tailwind.config.js`.
+- **Fonts**: Change fonts in `layout.tsx` using `next/font`.
+- **Logo**: Update the logo in `src/config/images.ts` if applicable.
 
 ## Environment Variables Needed
 - `NEXT_PUBLIC_API_URL`: The base URL for your API.
