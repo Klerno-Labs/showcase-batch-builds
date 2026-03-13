@@ -49,7 +49,7 @@ export function ContactForm() {
       <button type="submit" disabled={isSubmitting} className="bg-accent text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
-      {isSuccess && <p className="text-green-500">Thank you! We'll be in touch within 24 hours.</p>}
+      {isSuccess && <p className="text-green-500">Thank you! We&apos;ll be in touch within 24 hours.</p>}
       {error && <p className="text-red-500">{error}</p>}
     </form>
   );
