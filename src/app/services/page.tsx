@@ -50,7 +50,7 @@ export default function ServicesPage() {
 
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold mb-6">Don't see your specific issue?</h2>
+          <h2 className="font-heading text-3xl font-bold mb-6">Don&apos;t see your specific issue?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Law is complex, and many issues overlap. Contact us for a consultation to discuss your unique situation.
           </p>

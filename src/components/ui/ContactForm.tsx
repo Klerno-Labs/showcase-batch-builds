@@ -56,7 +56,7 @@ const ContactForm = () => {
             <textarea id="message" name="message" value={formData.message} onChange={handleChange} required className="border-b-2 border-gray-300 w-full p-2" />
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          {isSuccess && <p className="text-green-500">Thank you! We'll be in touch within 24 hours.</p>}
+          {isSuccess && <p className="text-green-500">Thank you! We&apos;ll be in touch within 24 hours.</p>}
           <button type="submit" disabled={isSubmitting} className="bg-gray-900 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-800 transition">
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>

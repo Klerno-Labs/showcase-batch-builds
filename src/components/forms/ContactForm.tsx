@@ -48,7 +48,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       <button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
-      {isSuccess && <p className="text-green-500">Thank you! We'll be in touch within 24 hours.</p>}
+      {isSuccess && <p className="text-green-500">Thank you! We&apos;ll be in touch within 24 hours.</p>}
     </form>
   );
 };
