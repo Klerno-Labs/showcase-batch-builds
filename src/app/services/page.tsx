@@ -57,7 +57,7 @@ export default function Services() {
             />
             <h3 className="mt-4 text-xl font-semibold">Workshops</h3>
             <p className="mt-2 text-base leading-relaxed">
-              Interactive workshops designed to enhance your team's skills. Starting at $300 per session.
+              Interactive workshops designed to enhance your team&apos;s skills. Starting at $300 per session.
             </p>
           </div>
         </div>

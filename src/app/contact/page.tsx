@@ -121,7 +121,7 @@ export default function Contact() {
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </div>
-          {isSuccess && <p className="text-green-600">Thank you! We'll be in touch within 24 hours.</p>}
+          {isSuccess && <p className="text-green-600">Thank you! We&apos;ll be in touch within 24 hours.</p>}
           {error && <p className="text-red-600">{error}</p>}
         </form>
       </div>
