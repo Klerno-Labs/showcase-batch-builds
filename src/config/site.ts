@@ -1,24 +1,30 @@
 export const siteConfig = {
-  name: "Summit Legal Advisors",
-  description: "Experienced law firm providing trusted legal counsel in business, real estate, and personal matters.",
-  url: "https://summitlegaladvisors.com",
+  name: "Aspen Dental Studio",
+  description: "Your trusted partner for comprehensive family dentistry with a gentle, patient-first approach.",
+  url: "https://example.com",
+  email: "info@aspendentalstudio.com",
+  phone: "(512) 555-0199",
+  address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
+  hours: {
+    monday: "8am - 6pm",
+    tuesday: "8am - 6pm",
+    wednesday: "8am - 6pm",
+    thursday: "8am - 6pm",
+    friday: "8am - 6pm",
+    saturday: "9am - 2pm",
+    sunday: "Closed",
+  },
+  socialLinks: {
+    facebook: "https://facebook.com/aspendentalstudio",
+    instagram: "https://instagram.com/aspendentalstudio",
+    twitter: "https://twitter.com/aspendentalstudio",
+  },
   links: {
-    twitter: "https://twitter.com",
-    instagram: "https://instagram.com",
-    linkedin: "https://linkedin.com",
+    menu: [
+      { title: "Home", href: "/" },
+      { title: "About", href: "/about" },
+      { title: "Services", href: "/services" },
+      { title: "Contact", href: "/contact" },
+    ],
   },
-  contact: {
-    phone: "(512) 555-0123",
-    email: "info@summitlegaladvisors.com",
-    address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
-  },
-  nav: [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
-    { title: "Practice Areas", href: "/services" },
-    { title: "Results", href: "/#verdicts" },
-    { title: "Contact", href: "/contact" },
-  ],
-};
-
-export type SiteConfig = typeof siteConfig;
+} as const;

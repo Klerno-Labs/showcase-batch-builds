@@ -1,51 +1,67 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Inter, Montserrat } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import { Metadata } from "next";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site";
-
-const heading = Playfair_Display({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
-const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
-const accent = Montserrat({ subsets: ["latin"], variable: "--font-accent", display: "swap" });
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
+  title: siteConfig.name,
   description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/og-image.jpg"],
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: ["/images/hero.jpg"],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/og-image.jpg"],
-  },
-  icons: {
-    icon: "/favicon.ico",
+    images: ["/images/hero.jpg"],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable} ${accent.variable}`}>
-      <body className="min-h-screen bg-background font-body text-text antialiased">
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main>{children}</main>
         <Footer />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: siteConfig.name,
+            description: siteConfig.description,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: siteConfig.address,
+              addressLocality: "Houston",
+              addressRegion: "TX",
+              postalCode: "77027",
+              addressCountry: "US",
+            },
+            telephone: siteConfig.phone,
+            openingHours: [
+              "Mo-Fr 08:00-18:00",
+              "Sa 09:00-14:00",
+              "Su Closed",
+            ],
+            sameAs: [
+              siteConfig.socialLinks.facebook,
+              siteConfig.socialLinks.instagram,
+              siteConfig.socialLinks.twitter,
+            ],
+          })}
+        </script>
       </body>
     </html>
   );

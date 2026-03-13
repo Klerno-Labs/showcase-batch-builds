@@ -1,30 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
-interface ContactFormProps {
-  onSubmit: (data: { name: string; email: string; message: string }) => void;
-}
-
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [error, setError] = useState("");
+export function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [honeypotValue, setHoneypotValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypotValue) return; // Bot detected
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (res.ok) {
         setIsSuccess(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
         setError("Something went wrong. Please try again.");
       }
@@ -36,21 +40,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-primary" />
+      <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Your Email" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-primary" />
+      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="Your Phone" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-primary" />
+      <textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Your Message" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-primary" />
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-      <label htmlFor="name">Name</label>
-      <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required />
-      <label htmlFor="email">Email</label>
-      <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
-      <label htmlFor="message">Message</label>
-      <textarea name="message" id="message" value={formData.message} onChange={handleChange} required />
-      {error && <p className="text-red-500">{error}</p>}
-      <button type="submit" disabled={isSubmitting}>
+      <button type="submit" disabled={isSubmitting} className="bg-accent text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
-      {isSuccess && <p className="text-green-500">Thank you! We&apos;ll be in touch within 24 hours.</p>}
+      {isSuccess && <p className="text-green-500">Thank you! We'll be in touch within 24 hours.</p>}
+      {error && <p className="text-red-500">{error}</p>}
     </form>
   );
-};
-
-export default ContactForm;
+}
