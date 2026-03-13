@@ -1,41 +1,24 @@
+import * as React from "react";
 import { cn } from "@/lib/utils";
-import { InputHTMLAttributes, forwardRef } from "react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  error?: string;
-}
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, label, id, error, ...props }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
     return (
-      <div className="w-full">
-        <label
-          htmlFor={id}
-          className="block text-sm font-medium text-gray-700 mb-1.5"
-        >
-          {label}
-        </label>
-        <input
-          id={id}
-          ref={ref}
-          className={cn(
-            "flex h-11 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:border-primary-500 focus-visible:ring-2 focus-visible:ring-primary-20 disabled:cursor-not-allowed disabled:opacity-50 transition-colors",
-            error && "border-red-500 focus-visible:border-red-500 focus-visible:ring-red-20",
-            className
-          )}
-          {...props}
-        />
-        {error && (
-          <p id={`${id}-error`} className="mt-1 text-sm text-red-600">
-            {error}
-          </p>
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          className
         )}
-      </div>
+        ref={ref}
+        {...props}
+      />
     );
   }
 );
-
 Input.displayName = "Input";
 
 export { Input };

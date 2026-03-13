@@ -1,19 +1,16 @@
-import type { MetadataRoute } from "next";
-
 export const siteConfig = {
   name: "Pegrio Solutions",
-  description: "Transforming businesses through innovative strategy and technology. We deliver results that drive growth.",
-  url: "https://pegrionext.com",
-  ogImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop",
+  description: "Driving innovation through strategic consulting and cutting-edge technology solutions.",
+  url: "https://pegrio.com",
   links: {
     twitter: "https://twitter.com",
     linkedin: "https://linkedin.com",
+    github: "https://github.com",
   },
   contact: {
-    phone: "(512) 555-0123",
-    email: "contact@pegrionext.com",
+    email: "info@pegrio.com",
+    phone: "(713) 555-0198",
     address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
+    hours: "Mon-Fri: 8am-6pm, Sat: 9am-2pm, Sun: Closed",
   },
-};
-
-export type SiteConfig = typeof siteConfig;
+}

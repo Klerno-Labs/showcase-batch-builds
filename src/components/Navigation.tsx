@@ -1,109 +1,126 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+import { Menu, X, Phone } from "lucide-react";
+import { Button } from "./ui/Button";
+import { siteConfig } from "@/config/site";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
     <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm"
-          : "bg-transparent border-b border-transparent"
-      )}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-100" : "bg-transparent"
+      }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main">
-        <div className="flex items-center justify-between h-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 group">
-             {/* Using text as logo for simplicity, can be swapped to image */}
-            <span className="text-2xl font-bold text-primary-900 tracking-tight group-hover:text-primary-700 transition-colors">
-              Apex<span className="text-primary-600">Strategic</span>
-            </span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors relative group"
-              >
-                {link.name}
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary-600 transition-all group-hover:w-full"></span>
-              </Link>
-            ))}
+          <div className="flex items-center">
+            <Link href="/" className="text-2xl font-bold tracking-tight text-gray-900">
+              {siteConfig.name}
+            </Link>
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:block">
-            <a href="#contact" className="text-sm font-semibold text-gray-900 hover:text-primary-600">
-              (713) 555-0198
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex md:items-center md:space-x-8">
+            <Link href="/" className="text-gray-600 hover:text-primary font-medium transition-colors">
+              Home
+            </Link>
+            <Link href="/about" className="text-gray-600 hover:text-primary font-medium transition-colors">
+              About
+            </Link>
+            <Link href="/services" className="text-gray-600 hover:text-primary font-medium transition-colors">
+              Services
+            </Link>
+            <Link href="/faq" className="text-gray-600 hover:text-primary font-medium transition-colors">
+              FAQ
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-primary font-medium transition-colors">
+              Contact
+            </Link>
+          </nav>
+
+          {/* CTA & Phone (Desktop) */}
+          <div className="hidden md:flex md:items-center md:space-x-4">
+            <a href={`tel:${siteConfig.contact.phone}`} className="text-sm font-semibold text-gray-900 flex items-center gap-2">
+              <Phone className="h-4 w-4 text-primary" />
+              {siteConfig.contact.phone}
             </a>
+            <Link href="/contact">
+              <Button size="sm">Get Started</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </nav>
+      </div>
 
       {/* Mobile Menu */}
       <div
-        className={cn(
-          "md:hidden fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out pt-20",
-          isOpen ? "translate-x-0" : "translate-x-full"
-        )}
+        className={`md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 transform transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-           <Link
-            href="tel:7135550198"
-            className="flex items-center gap-3 px-3 py-3 text-base font-medium text-primary-600 hover:bg-primary-50 rounded-md"
+        <nav className="flex flex-col p-4 space-y-4">
+          <Link
+            href="/"
+            className="text-gray-900 font-medium"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            Call (713) 555-0198
+            Home
           </Link>
-        </div>
+          <Link
+            href="/about"
+            className="text-gray-600 hover:text-gray-900"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            href="/services"
+            className="text-gray-600 hover:text-gray-900"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Services
+          </Link>
+          <Link
+            href="/faq"
+            className="text-gray-600 hover:text-gray-900"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            FAQ
+          </Link>
+          <Link
+            href="/contact"
+            className="text-gray-600 hover:text-gray-900"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <div className="pt-4 border-t border-gray-100">
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block">
+              <Button className="w-full">Get Started</Button>
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );

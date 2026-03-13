@@ -1,59 +1,170 @@
 "use client";
-import { useState } from 'react';
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+import { useState } from "react";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
+import { Textarea } from "./ui/Textarea";
+import { Loader2, CheckCircle2 } from "lucide-react";
+
+export function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    _gotcha: "", // Honeypot
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [honeypotValue, setHoneypotValue] = useState('');
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypotValue) return; // Bot detected
+    setError("");
+    
+    // Simple Validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+    
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Honeypot check (bot detection)
+    if (formData._gotcha) {
+      console.log("Bot detected via honeypot.");
+      return;
+    }
+
     setIsSubmitting(true);
+
     try {
-      const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
-      if (res.ok) setIsSuccess(true);
-      else setError("Something went wrong. Please try again.");
-    } catch {
-      setError("Network error. Please try again.");
+      // In a static export environment without a backend, this fetch might fail if API routes are not built.
+      // However, this code is ready for Vercel deployment.
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", phone: "", message: "", _gotcha: "" });
+      } else {
+        const data = await res.json();
+        setError(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please check your connection.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  if (isSuccess) {
+    return (
+      <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
+        <CheckCircle2 className="h-12 w-12 text-green-600 mx-auto mb-4" />
+        <h3 className="text-xl font-bold text-green-900 mb-2">Message Sent!</h3>
+        <p className="text-green-700">Thank you for contacting us. We'll be in touch within 24 hours.</p>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-      <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label htmlFor="name" className="text-sm font-medium text-gray-900">
+            Full Name <span className="text-red-500">*</span>
+          </label>
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="John Doe"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-900">
+            Email Address <span className="text-red-500">*</span>
+          </label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="john@example.com"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+
+      <div className="space-y-2">
+        <label htmlFor="phone" className="text-sm font-medium text-gray-900">
+          Phone Number
+        </label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="(123) 456-7890"
+          value={formData.phone}
+          onChange={handleChange}
+        />
       </div>
-      <div>
-        <label htmlFor="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
+
+      <div className="space-y-2">
+        <label htmlFor="message" className="text-sm font-medium text-gray-900">
+          Message <span className="text-red-500">*</span>
+        </label>
+        <Textarea
+          id="message"
+          name="message"
+          placeholder="How can we help you?"
+          rows={5}
+          value={formData.message}
+          onChange={handleChange}
+          required
+        />
       </div>
-      <div>
-        <label htmlFor="message">Message</label>
-        <textarea id="message" name="message" value={formData.message} onChange={handleChange} required />
-      </div>
-      {error && <p className="text-red-500">{error}</p>}
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Sending...' : 'Send Message'}
-      </button>
-      {isSuccess && <p className="text-green-500">Thank you! We&apos;ll be in touch within 24 hours.</p>}
+
+      {error && <p className="text-red-600 text-sm font-medium">{error}</p>}
+
+      <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Sending...
+          </>
+        ) : (
+          "Send Message"
+        )}
+      </Button>
+
+      {/* Honeypot for spam prevention */}
+      <input
+        type="text"
+        name="_gotcha"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+        value={formData._gotcha}
+        onChange={handleChange}
+      />
     </form>
   );
-};
-
-export default ContactForm;
+}

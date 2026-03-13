@@ -1,151 +1,121 @@
 import Image from "next/image";
-import { Target, Users, Lightbulb } from "lucide-react";
+import { motion } from "framer-motion";
 import { images } from "@/config/images";
 
 export const metadata = {
   title: "About Us",
-  description: "Learn about Pegrio's history, our team of expert consultants, and our mission to help Houston businesses grow.",
+  description: "Learn more about Pegrio Solutions and our mission to empower businesses through innovation.",
 };
 
 export default function AboutPage() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6 }
+  };
+
   return (
-    <main>
-      {/* Hero */}
-      <section className="bg-gray-50 pt-16 pb-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <>
+      {/* Hero Header */}
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1 {...fadeIn} className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
+              Building the Future of Business
+            </motion.h1>
+            <motion.p {...fadeIn} className="text-lg text-gray-600 leading-relaxed">
+              Founded on the principles of integrity and innovation, Pegrio Solutions has grown from a small Houston consultancy to a nationally recognized leader in business strategy.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                Building Houston's Future, One Strategy at a Time
-              </h1>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2015, Pegrio started with a simple belief: that every business, regardless of size, deserves access to Fortune 500-level strategic insights.
+            <motion.div {...fadeIn} className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src={images.about.src}
+                alt={images.about.alt}
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div {...fadeIn} className="space-y-6">
+              <h2 className="text-3xl font-bold">Our Story</h2>
+              <p className="text-lg text-gray-600">
+                It started with a simple observation: businesses were drowning in data but starving for insights. In 2015, Pegrio Solutions was born to bridge that gap.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We are a team of data scientists, operational experts, and creative thinkers dedicated to solving complex problems. We don't just give advice; we work shoulder-to-shoulder with you to implement it.
+              <p className="text-gray-600">
+                We believe that technology should serve people, not the other way around. Our team of seasoned experts works tirelessly to demystify the digital landscape, providing our clients with clear, actionable strategies that drive real growth.
               </p>
-              <div className="flex gap-8">
-                <div>
-                  <div className="text-4xl font-bold text-primary-600">150+</div>
-                  <div className="text-sm text-gray-500 font-medium">Clients Served</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary-600">$50M+</div>
-                  <div className="text-sm text-gray-500 font-medium">Revenue Generated</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary-600">8</div>
-                  <div className="text-sm text-gray-500 font-medium">Years Experience</div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={images.about.src}
-                  alt={images.about.alt}
-                  width={images.about.width}
-                  height={images.about.height}
-                  className="object-cover"
-                />
-              </div>
-            </div>
+              <p className="text-gray-600">
+                Today, we are proud to partner with organizations ranging from ambitious startups to Fortune 500 companies, all united by a desire to lead their industries.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-lg text-gray-600">
-              The principles that guide every client engagement.
-            </p>
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">The principles that guide every decision we make.</p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Integrity", desc: "We operate with transparency and honesty in every interaction." },
+              { title: "Innovation", desc: "We constantly seek better, faster, and smarter ways to solve problems." },
+              { title: "Collaboration", desc: "Your success is our success. We work as an extension of your team." },
+              { title: "Excellence", desc: "We don't settle for 'good enough'. We strive for exceptional." },
+              { title: "Agility", desc: "The market changes fast. We help you move faster." },
+              { title: "Impact", desc: "We measure our success by the value we create for you." }
+            ].map((value, i) => (
+              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.1 }} className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                <p className="text-gray-600">{value.desc}</p>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Leadership Team</h2>
+            <p className="text-gray-600">Meet the minds behind Pegrio Solutions.</p>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {
-                icon: Target,
-                title: "Results-Driven",
-                desc: "We measure our success by your ROI. Every strategy we propose is tied to a measurable outcome."
-              },
-              {
-                icon: Users,
-                title: "Collaborative Spirit",
-                desc: "We view ourselves as an extension of your team, ensuring seamless integration and knowledge transfer."
-              },
-              {
-                icon: Lightbulb,
-                title: "Innovative Thinking",
-                desc: "We leverage the latest technologies and methodologies to give you a competitive edge."
-              }
-            ].map((value, idx) => (
-              <div key={idx} className="text-center p-6 rounded-xl bg-gray-50 border border-gray-100">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mx-auto mb-4">
-                  <value.icon className="h-6 w-6" />
+              { name: "Alex Rivera", role: "CEO & Founder", bio: "Visionary leader with 15+ years in strategic consulting." },
+              { name: "Elena Chen", role: "CTO", bio: "Tech innovator specializing in scalable architecture." },
+              { name: "David Smith", role: "Head of Strategy", bio: "Data-driven expert transforming complex markets." }
+            ].map((member, i) => (
+              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.2 }} className="text-center">
+                <div className="relative h-64 w-64 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+                   <Image
+                    src={images["team-1"].src} 
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.desc}</p>
-              </div>
+                <h3 className="text-xl font-bold">{member.name}</h3>
+                <p className="text-primary font-medium mb-2">{member.role}</p>
+                <p className="text-sm text-gray-600 px-4">{member.bio}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Team */}
-      <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-4">
-              Meet the Leadership
-            </h2>
-            <p className="text-lg text-gray-600">
-              Experienced professionals dedicated to your success.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Alex Rivera",
-                role: "CEO & Founder",
-                bio: "Former VP of Strategy at a Fortune 500 firm with 15+ years in operational optimization."
-              },
-              {
-                name: "David Chen",
-                role: "Head of Analytics",
-                bio: "PhD in Data Science, specializing in predictive modeling for supply chain and logistics."
-              },
-              {
-                name: "Elena Rodriguez",
-                role: "Director of Consulting",
-                bio: "Expert in change management and organizational development, certified Agile coach."
-              }
-            ].map((member, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 group">
-                 <div className="aspect-[4/3] bg-gray-200 overflow-hidden relative">
-                    <Image 
-                      src={idx === 0 ? "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop" : idx === 1 ? "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=600&fit=crop" : "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=600&fit=crop"}
-                      alt={member.name}
-                      width={600}
-                      height={600}
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                 </div>
-                 <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
-                    <div className="text-primary-600 font-medium text-sm mb-3">{member.role}</div>
-                    <p className="text-gray-600 text-sm">{member.bio}</p>
-                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+    </>
   );
 }

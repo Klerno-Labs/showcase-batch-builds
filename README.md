@@ -1,133 +1,62 @@
-# Pegrio Website
+# Pegrio Solutions Website
 
-A modern, high-performance business website built with Next.js 14, Tailwind CSS, and TypeScript.
+A high-performance, production-ready website built with Next.js 14, Tailwind CSS, and TypeScript.
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS (Utility-first)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
-- **Images**: Next.js Image Optimization
-- **Fonts**: Next.js Font Optimization (Inter)
+- **Icons**: Lucide React
+- **Deployment**: Vercel (Static Export Compatible)
 
 ## Getting Started
 
-### Prerequisites
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-- Node.js 18+ installed
-- npm or yarn package manager
+2.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <your-repo-url>
-   cd pegrio-website
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3.  **Build for Production**:
+    ```bash
+    npm run build
+    ```
 
 ## Project Structure
 
-```
-pegrio-website/
-├── public/                 # Static assets (favicons, etc)
-├── src/
-│   ├── app/               # Next.js App Router pages
-│   │   ├── api/           # API routes (contact form)
-│   │   ├── about/         # About page
-│   │   ├── contact/       # Contact page
-│   │   ├── faq/           # FAQ page
-│   │   ├── services/      # Services page
-│   │   ├── layout.tsx     # Root layout
-│   │   └── page.tsx       # Homepage
-│   ├── components/        # React components
-│   │   ├── layout/        # Navbar, Footer
-│   │   ├── sections/      # Page sections (Hero, Forms)
-│   │   └── ui/            # Reusable UI primitives
-│   ├── config/            # Configuration files
-│   │   └── images.ts      # Image URL management
-│   └── lib/               # Utility functions
-├── package.json
-├── tailwind.config.ts
-└── tsconfig.json
-```
+- `src/app`: Next.js App Router pages and layouts.
+- `src/components`: Reusable UI and section components.
+- `src/config`: Configuration files (images, site metadata).
+- `src/lib`: Utility functions.
 
-## Customization
+## Image Customization
 
-### Changing Images
+All images are centrally managed in `src/config/images.ts`. To swap any image on the site:
 
-All images are centrally managed in `src/config/images.ts`. 
+1.  Open `src/config/images.ts`.
+2.  Locate the slot you want to change (e.g., `"hero"`, `"service-1"`).
+3.  Replace the `src` URL with your new image link.
+4.  Update the `alt` text for accessibility.
+5.  Save the file. The changes will reflect immediately.
 
-1. Open `src/config/images.ts`.
-2. Find the slot key (e.g., `hero`, `about`, `service-1`).
-3. Replace the `src` property with your new image URL.
-4. Update the `alt` text for accessibility.
-5. Save the file. The change will reflect immediately on your site.
+## Brand Customization
 
-**Supported Slots:**
-- `hero`: Homepage hero banner.
-- `hero-alt`: Secondary hero or page header.
-- `about`: About section/team page image.
-- `service-1`, `service-2`, `service-3`: Service card images.
-- `gallery-1`, `gallery-2`, `gallery-3`: Miscellaneous gallery/images.
-- `team-1`: Team photo.
-- `cta`: Call-to-action section background.
-- `testimonial-bg`: Testimonials section background.
-
-### Branding & Colors
-
-To change the primary brand color:
-
-1. Open `tailwind.config.ts`.
-2. Locate the `colors.primary` object.
-3. Adjust the hex codes to match your brand.
-4. The site will automatically update text, buttons, and accents to the new palette.
-
-To change the logo:
-1. Replace the `P` div in `src/components/layout/Navbar.tsx` with an `Image` component pointing to your logo file.
-
-### Fonts
-
-The site uses **Inter** by default. To change fonts:
-
-1. Go to `src/app/layout.tsx`.
-2. Import a new font from `next/font/google`.
-3. Replace `inter` with your new font object in the `className`.
-
-## Environment Variables
-
-No environment variables are strictly required for the static build to run. However, for production analytics or API integrations (email), you would typically add them to `.env.local`.
+- **Colors**: Modify primary colors in `tailwind.config.ts`.
+- **Fonts**: Change the font import in `src/app/layout.tsx`.
+- **Content**: Update text content directly in the respective page files (e.g., `src/app/page.tsx`).
+- **Site Info**: Edit business name, phone, and address in `src/config/site.ts`.
 
 ## Deployment
 
-This site is optimized for static export via Vercel.
+This site is optimized for Vercel. Simply connect your repository to Vercel, and it will build automatically. Ensure environment variables are set if you expand the API functionality.
 
-### Deploy to Vercel
+## License
 
-1. Push your code to GitHub/GitLab/Bitbucket.
-2. Log in to [Vercel](https://vercel.com) and click "Add New Project".
-3. Import your repository.
-4. Vercel will detect Next.js automatically.
-5. Click **Deploy**.
-
-For static export configuration, ensure `output: 'export'` is present in `next.config.js` (if deploying to static hosts like Netlify or S3).
-
-## Support
-
-For questions regarding this build, please contact the Pegrio development team.
+© 2024 Pegrio Solutions. All rights reserved.
